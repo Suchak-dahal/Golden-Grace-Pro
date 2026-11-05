@@ -264,6 +264,18 @@ body {
   color: var(--gg-dark);
 }
 
+.icon-wrapper svg {
+  width: 40px;
+  height: 40px;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  transition: transform 0.2s ease, stroke 0.2s ease;
+}
+
+.service-card:hover .icon-wrapper svg {
+  transform: scale(1.05);
+}
+
 .service-card h3 {
   font-size: 1.05rem;
   font-weight: 700;
@@ -289,31 +301,98 @@ body {
   margin-bottom: 24px;
 }
 
-.step-indicator {
+.step-indicator,
+.step-node {
   display: flex;
   align-items: center;
   gap: 8px;
   color: var(--gg-text-muted);
   font-size: 0.9rem;
   font-weight: 600;
+  user-select: none;
+  cursor: default;
+  transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1), color 0.2s ease;
 }
 
-.step-indicator.active {
+.step-indicator.active,
+.step-node.active {
   color: var(--gg-blue-accent);
+  cursor: default;
+  pointer-events: none;
 }
 
-.step-indicator.completed .step-num-circle {
+.step-indicator:not(.completed):not(.active),
+.step-node:not(.completed):not(.active) {
+  cursor: not-allowed;
+  opacity: 0.65;
+  pointer-events: none;
+}
+
+.step-indicator.completed,
+.step-node.completed,
+.step-indicator.visited,
+.step-node.visited {
+  cursor: pointer !important;
+  pointer-events: auto !important;
+}
+
+.step-indicator.completed:hover,
+.step-node.completed:hover,
+.step-indicator.visited:hover,
+.step-node.visited:hover {
+  transform: translateY(-1px);
+}
+
+.step-indicator.completed .step-num-circle,
+.step-indicator.completed .step-num,
+.step-node.completed .step-num,
+.step-node.completed .step-num-circle,
+.step-indicator.visited .step-num-circle,
+.step-node.visited .step-num-circle {
   background-color: var(--gg-gold);
   border-color: var(--gg-gold);
   color: var(--gg-dark);
   font-weight: 800;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease, border-color 0.2s ease;
 }
 
-.step-indicator.completed .step-name {
+.step-indicator.completed:hover .step-num-circle,
+.step-indicator.completed:hover .step-num,
+.step-node.completed:hover .step-num,
+.step-node.completed:hover .step-num-circle,
+.step-indicator.visited:hover .step-num-circle,
+.step-node.visited:hover .step-num-circle {
+  background-color: #d4a017;
+  border-color: #b78a3c;
+  color: #111827;
+  box-shadow: 0 0 0 4px rgba(212, 160, 23, 0.28), 0 3px 8px rgba(0, 0, 0, 0.12);
+  transform: scale(1.08);
+}
+
+.step-indicator.completed .step-name,
+.step-indicator.completed .step-label,
+.step-node.completed .step-label,
+.step-node.completed .step-name,
+.step-indicator.visited .step-name,
+.step-node.visited .step-name {
   color: var(--gg-text-main);
+  transition: color 0.2s ease, text-decoration 0.2s ease;
 }
 
-.step-num-circle {
+.step-indicator.completed:hover .step-name,
+.step-indicator.completed:hover .step-label,
+.step-node.completed:hover .step-label,
+.step-node.completed:hover .step-name,
+.step-indicator.visited:hover .step-name,
+.step-node.visited:hover .step-name {
+  color: var(--gg-forest, #10b981);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  text-decoration-thickness: 1.5px;
+}
+
+.step-num-circle,
+.step-num {
   width: 28px;
   height: 28px;
   border-radius: 50%;
@@ -324,9 +403,12 @@ body {
   font-size: 0.82rem;
   font-weight: 700;
   color: var(--gg-text-muted);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
 }
 
-.step-indicator.active .step-num-circle {
+.step-indicator.active .step-num-circle,
+.step-node.active .step-num,
+.step-indicator.active .step-num {
   background-color: var(--gg-blue-accent);
   border-color: var(--gg-blue-accent);
   color: #ffffff;
@@ -772,10 +854,17 @@ body {
   color: var(--gg-blue-accent);
 }
 
-/* Bottom Total Banner */
-.bottom-total-banner {
-  background-color: var(--gg-navy-banner);
-  color: #ffffff;
+/* ==============================================
+   ESTIMATED TOTAL BANNER (High Contrast Fix)
+   ============================================== */
+.bottom-total-banner,
+.estimated-total-bar,
+.total-summary-bar,
+.pricing-bottom-bar,
+.total-banner,
+.booking-total-banner {
+  background-color: var(--gg-navy-banner) !important;
+  color: #ffffff !important;
   border-radius: 12px;
   padding: 20px 24px;
   display: flex;
@@ -785,21 +874,68 @@ body {
   margin-bottom: 24px;
 }
 
-.total-label-box h3 {
+.bottom-total-banner *,
+.estimated-total-bar *,
+.total-summary-bar *,
+.pricing-bottom-bar *,
+.total-banner *,
+.booking-total-banner * {
+  color: #ffffff;
+}
+
+.total-label-box,
+.bottom-total-banner .total-label-box,
+.estimated-total-bar .total-label,
+.total-summary-bar .total-label {
+  display: flex;
+  flex-direction: column;
+}
+
+.total-label-box h3,
+.total-label-box h4,
+.bottom-total-banner h3,
+.bottom-total-banner h4,
+.bottom-total-banner .total-label,
+.estimated-total-bar h3,
+.estimated-total-bar h4,
+.estimated-total-bar .total-label,
+.total-summary-bar h3,
+.total-summary-bar h4,
+.pricing-bottom-bar h3,
+.pricing-bottom-bar h4 {
   font-size: 1.15rem;
   font-weight: 800;
   margin-bottom: 2px;
+  color: #ffffff !important;
+  line-height: 1.2;
 }
 
-.total-label-box span {
+.total-label-box span,
+.total-label-box small,
+.bottom-total-banner span,
+.bottom-total-banner small,
+.bottom-total-banner .tax-note,
+.estimated-total-bar span,
+.estimated-total-bar small,
+.estimated-total-bar .tax-note,
+.total-summary-bar span,
+.total-summary-bar small,
+.pricing-bottom-bar span,
+.pricing-bottom-bar small {
   font-size: 0.85rem;
-  color: rgba(255, 255, 255, 0.75);
+  color: rgba(255, 255, 255, 0.9) !important;
+  opacity: 0.95;
 }
 
-.total-price-display {
+.total-price-display,
+.bottom-total-banner .total-price-display,
+.estimated-total-bar .total-price-display,
+.total-summary-bar .total-price-display,
+.pricing-bottom-bar .total-price-display {
   font-size: 2rem;
   font-weight: 900;
   letter-spacing: -0.5px;
+  color: #ffffff !important;
 }
 
 /* Sidebar Cards */
@@ -1077,6 +1213,14 @@ body {
   transition: all 0.2s ease;
 }
 
+.btn-submit-quote:disabled,
+.btn-submit-quote.is-loading {
+  opacity: 0.75;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
 .btn-submit-quote:hover {
   background-color: var(--gg-blue-btn-hover);
   transform: translateY(-1px);
@@ -1276,3 +1420,89 @@ body {
   color: var(--gg-blue-accent);
 }
 
+
+/* ==========================================================================
+   Custom Service Requirements Textarea (Scoped Styling)
+   ========================================================================== */
+.custom-requirements-group {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin-bottom: 24px;
+}
+
+.custom-requirements-group .custom-label {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #0f2438;
+  margin-bottom: 8px;
+  display: block;
+}
+
+.custom-requirements-group .custom-label .req-star {
+  color: #dc2626;
+  font-weight: 700;
+  margin-left: 2px;
+}
+
+.custom-textarea,
+.custom-requirements-group textarea.custom-textarea {
+  width: 100%;
+  min-height: 140px;
+  box-sizing: border-box;
+  padding: 14px 16px;
+  font-family: inherit;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: #0f2438;
+  background-color: #ffffff;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  outline: none;
+  resize: vertical;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.custom-textarea:hover,
+.custom-requirements-group textarea.custom-textarea:hover {
+  border-color: #94a3b8;
+}
+
+.custom-textarea:focus,
+.custom-requirements-group textarea.custom-textarea:focus {
+  border-color: #0284c7;
+  box-shadow: 0 0 0 3px rgba(2, 132, 199, 0.15);
+}
+
+/* Cross-browser placeholder typography */
+.custom-textarea::-webkit-input-placeholder {
+  color: #94a3b8;
+  opacity: 1;
+  font-family: inherit;
+  font-size: 0.92rem;
+  line-height: 1.5;
+}
+
+.custom-textarea::-moz-placeholder {
+  color: #94a3b8;
+  opacity: 1;
+  font-family: inherit;
+  font-size: 0.92rem;
+  line-height: 1.5;
+}
+
+.custom-textarea:-ms-input-placeholder {
+  color: #94a3b8;
+  opacity: 1;
+  font-family: inherit;
+  font-size: 0.92rem;
+  line-height: 1.5;
+}
+
+.custom-textarea::placeholder {
+  color: #94a3b8;
+  opacity: 1;
+  font-family: inherit;
+  font-size: 0.92rem;
+  line-height: 1.5;
+}

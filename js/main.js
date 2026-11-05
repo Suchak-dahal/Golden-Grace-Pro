@@ -53,14 +53,15 @@
         EMAILJS_USER_TEMPLATE_ID below. Save this file — no other code
         changes are required.
      ========================================================================== */
-  const EMAILJS_PUBLIC_KEY = "ZMv6drI8JMccVqExB"; // TODO: replace with your EmailJS Public Key
-  const EMAILJS_SERVICE_ID = "service_vrifao4"; // TODO: replace with your EmailJS Service ID
-  const EMAILJS_ADMIN_TEMPLATE_ID = "template_60478oc"; // TODO: company notification template
-  const EMAILJS_USER_TEMPLATE_ID = "template_mcb1qkv"; // TODO: client confirmation template
+  const cfg = window.GG_EMAIL_CONFIG || {};
+  const EMAILJS_PUBLIC_KEY = cfg.PUBLIC_KEY || "ZMv6drI8JMccVqExB";
+  const EMAILJS_SERVICE_ID = cfg.SERVICE_ID || "service_vrifao4";
+  const EMAILJS_ADMIN_TEMPLATE_ID = cfg.ADMIN_TEMPLATE_ID || "template_60478oc";
+  const EMAILJS_USER_TEMPLATE_ID = cfg.CUSTOMER_TEMPLATE_ID || cfg.USER_TEMPLATE_ID || "template_mcb1qkv";
 
-  const COMPANY_NAME = "Golden Grace Services";
-  const COMPANY_EMAIL = "info@goldengrace.com.au";
-  const COMPANY_PHONE = "+61 485 903 551";
+  const COMPANY_NAME = cfg.COMPANY_NAME || "Golden Grace Services";
+  const COMPANY_EMAIL = cfg.COMPANY_EMAIL || "info@goldengrace.com.au";
+  const COMPANY_PHONE = cfg.COMPANY_PHONE || "+61 485 903 551";
 
   safe("emailjs init", function () {
     if (window.emailjs && typeof window.emailjs.init === "function") {
@@ -385,22 +386,67 @@
       timeStyle: "short",
     });
 
+    const currentConfig = window.GG_EMAIL_CONFIG || {};
+    const serviceId = currentConfig.SERVICE_ID || EMAILJS_SERVICE_ID;
+    const adminTemplateId = currentConfig.ADMIN_TEMPLATE_ID || EMAILJS_ADMIN_TEMPLATE_ID;
+    const userTemplateId = currentConfig.CUSTOMER_TEMPLATE_ID || currentConfig.USER_TEMPLATE_ID || EMAILJS_USER_TEMPLATE_ID;
+    const compName = currentConfig.COMPANY_NAME || COMPANY_NAME;
+    const compEmail = currentConfig.COMPANY_EMAIL || COMPANY_EMAIL;
+    const compPhone = currentConfig.COMPANY_PHONE || COMPANY_PHONE;
+    const compWebsite = currentConfig.COMPANY_WEBSITE || "https://www.goldengrace.com.au";
+
+    const serviceName = payload.serviceLabel || payload.serviceValue || "General Cleaning";
+    const serviceDetails = [
+      "==================================================",
+      `SERVICE: ${serviceName.toUpperCase()}`,
+      "==================================================",
+      `• Preferred Date:    ${payload.preferredDate}`,
+      `• Preferred Time:    ${payload.preferredTime || "Any time"}`,
+      `• Service Location:  ${payload.location}`,
+      `• Client Notes:      ${payload.additionalNotes || "None"}`,
+      "",
+      "--------------------------------------------------",
+      "PRICING ESTIMATE:",
+      "--------------------------------------------------",
+      "• Pricing Status:    Custom quote requested online"
+    ].join("\n");
+
     const sharedParams = {
+      // Primary standard schema tags
+      service_name: serviceName,
+      customer_name: payload.fullName,
+      customer_email: payload.emailAddress,
+      customer_phone: payload.phoneNumber,
+      customer_address: payload.location,
+      preferred_date: payload.preferredDate,
+      preferred_time: payload.preferredTime,
+      access_notes: payload.additionalNotes || "None",
+      service_details: serviceDetails,
+      estimated_price: "Quote requested online",
+      source_page: payload.sourcePage,
+      submitted_at: submittedAtFormatted,
+
+      // Company details
+      company_name: compName,
+      company_email: compEmail,
+      company_phone: compPhone,
+      company_website: compWebsite,
+
+      // Legacy aliases for backward compatibility
       full_name: payload.fullName,
       email: payload.emailAddress,
       phone: payload.phoneNumber,
-      service: payload.serviceLabel || payload.serviceValue,
+      service: serviceName,
       date: payload.preferredDate,
       time: payload.preferredTime,
       location: payload.location,
-      notes: payload.additionalNotes || "-",
-      source_page: payload.sourcePage,
-      submitted_at: submittedAtFormatted,
+      notes: payload.additionalNotes || "-"
     };
 
     // 1) Notify the company inbox with the client's quote request.
     const adminParams = Object.assign({}, sharedParams, {
-      to_email: COMPANY_EMAIL,
+      to_email: compEmail,
+      to_name: compName,
       reply_to: payload.emailAddress,
     });
 
@@ -408,15 +454,12 @@
     const userParams = Object.assign({}, sharedParams, {
       to_name: payload.fullName,
       to_email: payload.emailAddress,
-      reply_to: COMPANY_EMAIL,
-      company_name: COMPANY_NAME,
-      company_email: COMPANY_EMAIL,
-      company_phone: COMPANY_PHONE,
+      reply_to: compEmail,
     });
 
     await Promise.all([
-      window.emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_ADMIN_TEMPLATE_ID, adminParams),
-      window.emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_USER_TEMPLATE_ID, userParams),
+      window.emailjs.send(serviceId, adminTemplateId, adminParams),
+      window.emailjs.send(serviceId, userTemplateId, userParams),
     ]);
 
     return true;
@@ -545,6 +588,21 @@
   safe("footer year", function () {
     document.querySelectorAll("[data-year]").forEach((el) => {
       el.textContent = new Date().getFullYear();
+    });
+  });
+
+  /* ---------------- Clear abandoned booking drafts on fresh entry ---------------- */
+  safe("clearBookingDraftsOnNav", function () {
+    document.querySelectorAll('a[href*="pricing-booking"], a.btn-nav-book, .btn-nav-book').forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        try {
+          sessionStorage.removeItem("goldengrace_custom_service");
+          sessionStorage.removeItem("goldengrace_custom_back_from_step2");
+          sessionStorage.removeItem("custom_booking_draft");
+          localStorage.removeItem("custom_booking_draft");
+          localStorage.removeItem("goldengrace_custom_service");
+        } catch (e) {}
+      });
     });
   });
 })();

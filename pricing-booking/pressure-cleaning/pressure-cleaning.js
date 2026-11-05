@@ -23,18 +23,30 @@ document.addEventListener("DOMContentLoaded", () => {
     document.getElementById("pcLine2")
   ];
 
+  let currentStep = 1;
+
   function setStep(stepNum) {
+    currentStep = stepNum;
     Object.values(views).forEach(v => v.classList.remove("active"));
     steps.forEach((s, i) => {
       s.classList.remove("active", "completed");
       const c = s.querySelector(".step-num-circle");
       if (i + 1 < stepNum) {
         s.classList.add("completed");
+        s.setAttribute("role", "button");
+        s.setAttribute("tabindex", "0");
+        s.setAttribute("aria-label", "Go back to step " + (i + 1));
         if (c) c.textContent = "✓";
       } else if (i + 1 === stepNum) {
         s.classList.add("active");
+        s.removeAttribute("role");
+        s.removeAttribute("tabindex");
+        s.removeAttribute("aria-label");
         if (c) c.textContent = (stepNum === 1) ? "✓" : stepNum;
       } else {
+        s.removeAttribute("role");
+        s.removeAttribute("tabindex");
+        s.removeAttribute("aria-label");
         if (c) c.textContent = i + 1;
       }
     });
@@ -50,6 +62,24 @@ document.addEventListener("DOMContentLoaded", () => {
 
     window.scrollTo({ top: 0, behavior: "smooth" });
   }
+
+  // Stepper Back Navigation Click Handlers
+  steps.forEach((stepEl, idx) => {
+    if (!stepEl) return;
+    const handleStepNav = () => {
+      const targetStep = idx + 1;
+      if (targetStep < currentStep) {
+        setStep(targetStep);
+      }
+    };
+    stepEl.addEventListener("click", handleStepNav);
+    stepEl.addEventListener("keydown", (e) => {
+      if (e.key === "Enter" || e.key === " ") {
+        e.preventDefault();
+        handleStepNav();
+      }
+    });
+  });
 
   // Property Selection
   document.querySelectorAll("#view-pc-details .property-type-card").forEach(c => {
@@ -146,6 +176,7 @@ document.addEventListener("DOMContentLoaded", () => {
         <div class="review-kv-row"><span class="kv-label">Email</span><span class="kv-value">${s.email}</span></div>
         <div class="review-kv-row"><span class="kv-label">Mobile</span><span class="kv-value">${s.phone}</span></div>
         <div class="review-kv-row"><span class="kv-label">Address</span><span class="kv-value">${s.street}, ${s.suburb} ${s.postcode}</span></div>
+        <div class="review-kv-row"><span class="kv-label">Access notes</span><span class="kv-value">${s.notes}</span></div>
       `;
 
       setStep(3);
@@ -159,6 +190,20 @@ document.addEventListener("DOMContentLoaded", () => {
   document.getElementById("btnEditPcContact").addEventListener("click", () => setStep(2));
 
   const modal = document.getElementById("pcSuccessModal");
-  document.getElementById("btnSubmitPc").addEventListener("click", () => modal.classList.add("active"));
+  const submitBtn = document.getElementById("btnSubmitPc");
+  if (submitBtn) {
+    submitBtn.addEventListener("click", async () => {
+      if (window.GG_BOOKING_ENGINE) {
+        await window.GG_BOOKING_ENGINE.submitBooking({
+          serviceName: "Pressure Cleaning",
+          submitBtn: submitBtn,
+          modal: modal,
+          data: pcData
+        });
+      } else {
+        modal.classList.add("active");
+      }
+    });
+  }
   document.getElementById("btnPcModalClose").addEventListener("click", () => window.location.href = "../../index.html");
 });

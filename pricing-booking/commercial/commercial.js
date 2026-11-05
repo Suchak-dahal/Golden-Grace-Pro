@@ -20,18 +20,30 @@ document.addEventListener("DOMContentLoaded", () => {
     document.getElementById("commLine2")
   ];
 
+  let currentStep = 1;
+
   function setStep(stepNum) {
+    currentStep = stepNum;
     Object.values(views).forEach(v => v.classList.remove("active"));
     steps.forEach((s, i) => {
       s.classList.remove("active", "completed");
       const c = s.querySelector(".step-num-circle");
       if (i + 1 < stepNum) {
         s.classList.add("completed");
+        s.setAttribute("role", "button");
+        s.setAttribute("tabindex", "0");
+        s.setAttribute("aria-label", "Go back to step " + (i + 1));
         if (c) c.textContent = "✓";
       } else if (i + 1 === stepNum) {
         s.classList.add("active");
+        s.removeAttribute("role");
+        s.removeAttribute("tabindex");
+        s.removeAttribute("aria-label");
         if (c) c.textContent = (stepNum === 1) ? "✓" : stepNum;
       } else {
+        s.removeAttribute("role");
+        s.removeAttribute("tabindex");
+        s.removeAttribute("aria-label");
         if (c) c.textContent = i + 1;
       }
     });
@@ -47,6 +59,24 @@ document.addEventListener("DOMContentLoaded", () => {
 
     window.scrollTo({ top: 0, behavior: "smooth" });
   }
+
+  // Stepper Back Navigation Click Handlers
+  steps.forEach((stepEl, idx) => {
+    if (!stepEl) return;
+    const handleStepNav = () => {
+      const targetStep = idx + 1;
+      if (targetStep < currentStep) {
+        setStep(targetStep);
+      }
+    };
+    stepEl.addEventListener("click", handleStepNav);
+    stepEl.addEventListener("keydown", (e) => {
+      if (e.key === "Enter" || e.key === " ") {
+        e.preventDefault();
+        handleStepNav();
+      }
+    });
+  });
 
   const validate = (ctrlId, inputId) => {
     const ctrl = document.getElementById(ctrlId);
@@ -98,6 +128,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Step 2 Submit
   document.getElementById("btnBackToDetails").addEventListener("click", () => setStep(1));
+
+  const commDateInput = document.getElementById("serviceDate");
+  const commAltDateInput = document.getElementById("altDate");
+  const today = new Date().toISOString().split("T")[0];
+  if (commDateInput) commDateInput.setAttribute("min", today);
+  if (commAltDateInput) commAltDateInput.setAttribute("min", today);
 
   document.getElementById("commScheduleForm").addEventListener("submit", (e) => {
     e.preventDefault();
@@ -161,6 +197,20 @@ document.addEventListener("DOMContentLoaded", () => {
   document.getElementById("btnEditCommContact").addEventListener("click", () => setStep(2));
 
   const modal = document.getElementById("commSuccessModal");
-  document.getElementById("btnSubmitComm").addEventListener("click", () => modal.classList.add("active"));
+  const submitBtn = document.getElementById("btnSubmitComm");
+  if (submitBtn) {
+    submitBtn.addEventListener("click", async () => {
+      if (window.GG_BOOKING_ENGINE) {
+        await window.GG_BOOKING_ENGINE.submitBooking({
+          serviceName: "Commercial Cleaning",
+          submitBtn: submitBtn,
+          modal: modal,
+          data: commData
+        });
+      } else {
+        modal.classList.add("active");
+      }
+    });
+  }
   document.getElementById("btnCommModalClose").addEventListener("click", () => window.location.href = "../../index.html");
 });

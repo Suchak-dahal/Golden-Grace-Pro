@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Custom / Specialised Service Booking | Golden Grace Services</title>
+  <link rel="icon" href="../../Photo/Logo.jpeg">
+  <link rel="stylesheet" href="../../css/style.css">
+  <link rel="stylesheet" href="../../css/booking.css">
+</head>
+<body>
+
+  <header class="site-header" id="siteHeader">
+    <div class="container nav-inner">
+      <a href="../../index.html" class="brand" aria-label="Golden Grace Services home">
+        <img class="brand-mark" src="../../Photo/Logo.jpeg" alt="Golden Grace Services logo" width="520" height="520">
+        <span>Golden Grace<span class="brand-sub">Cleaning and Gardening Services</span></span>
+      </a>
+
+      <nav class="nav-links">
+        <a href="../../index.html" class="nav-item">Home</a>
+        <a href="../../cleaning.html" class="nav-item">Cleaning</a>
+        <a href="../../gardening.html" class="nav-item">Gardening</a>
+
+        <div class="nav-actions">
+          <!-- Call Now Button -->
+          <a href="tel:+61485903551" class="btn-nav-call">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" width="17" height="17" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+            </svg>
+            <span>Call Now</span>
+          </a>
+
+          <!-- Book a Clean Pill Button -->
+          <a href="../index.html" class="btn-nav-book">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" width="17" height="17" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+              <line x1="16" y1="2" x2="16" y2="6"></line>
+              <line x1="8" y1="2" x2="8" y2="6"></line>
+              <line x1="3" y1="10" x2="21" y2="10"></line>
+            </svg>
+            <span>Book a Clean</span>
+          </a>
+        </div>
+      </nav>
+      <button class="hamburger" id="hamburger" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="navLinks">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main class="main-content">
+    <div class="support-bar">
+      Need help? 📞 <a href="tel:+61485903551">+61 485 903 551</a>
+    </div>
+
+    <!-- Stepper Navigation -->
+    <div class="stepper-bar">
+      <div class="step-indicator active" id="customStep1">
+        <span class="step-num-circle">✓</span>
+        <span class="step-name">Details</span>
+      </div>
+      <div class="step-connector-line" id="customLine1"></div>
+      <div class="step-indicator" id="customStep2">
+        <span class="step-num-circle">2</span>
+        <span class="step-name">Date & Contact</span>
+      </div>
+      <div class="step-connector-line" id="customLine2"></div>
+      <div class="step-indicator" id="customStep3">
+        <span class="step-num-circle">3</span>
+        <span class="step-name">Review</span>
+      </div>
+    </div>
+
+    <!-- STEP 1: Details -->
+    <section id="view-custom-details" class="booking-step-view active">
+      <div class="page-heading">
+        <h1>Custom / Specialised Service Details</h1>
+        <p>Tell us what you need done. Our team will review your requirements and provide a tailored quote.</p>
+      </div>
+
+      <div class="selection-panel">
+        <div class="info-callout">
+          <div class="callout-icon">📋</div>
+          <div class="callout-content">
+            <strong>Tailored quote required</strong>
+            <p>Every home and business is unique. Tell us about your tasks, problem areas, timing, or access instructions so our Perth team can review your specifications and provide a confirmed quote.</p>
+          </div>
+        </div>
+
+        <form id="customDetailsForm" autocomplete="off" novalidate>
+          <div class="field-control full-span custom-requirements-group" id="ctrl-customRequirements">
+            <label for="custom_requirements" class="custom-label">Describe Your Requirements <span class="req-star">*</span></label>
+            <textarea id="custom_requirements" name="custom_requirements" class="custom-textarea" rows="6" placeholder="Describe your job in as much detail as you'd like (e.g., specific indoor rooms, garden care, combined tasks, problem areas, timing, or access instructions)..." autocomplete="off" required></textarea>
+            <span class="field-error-msg" id="customReqError">Please describe your requirements before continuing.</span>
+          </div>
+
+          <div class="panel-nav-footer">
+            <a href="../index.html" class="btn-nav-back">← Back</a>
+            <button type="submit" class="btn-continue" id="btnCustomToSchedule" disabled>Continue <span>→</span></button>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <!-- STEP 2: Date & Contact -->
+    <section id="view-custom-schedule" class="booking-step-view">
+      <div class="page-heading">
+        <h1>Date & Contact</h1>
+        <p>Tell us where and when you would like the service.</p>
+      </div>
+
+      <div class="selection-panel">
+        <form id="customScheduleForm" novalidate>
+          <div class="field-control full-span" id="ctrl-customFullName">
+            <label>Full name <span class="req-star">*</span></label>
+            <input type="text" id="customFullName" placeholder="John Smith">
+            <span class="field-error-msg">Enter your full name.</span>
+          </div>
+
+          <div class="fields-row-2">
+            <div class="field-control" id="ctrl-customEmail">
+              <label>Email address <span class="req-star">*</span></label>
+              <div class="input-with-icon">
+                <span class="field-icon">✉</span>
+                <input type="email" id="customEmail" placeholder="john@example.com">
+              </div>
+              <span class="field-error-msg">Enter a valid email address.</span>
+            </div>
+
+            <div class="field-control" id="ctrl-customPhone">
+              <label>Mobile number <span class="req-star">*</span></label>
+              <div class="input-with-icon">
+                <span class="field-icon">📞</span>
+                <input type="tel" id="customPhone" placeholder="0480 000 000">
+              </div>
+              <span class="field-error-msg">Enter a valid mobile number.</span>
+            </div>
+          </div>
+
+          <div class="field-control full-span" id="ctrl-customStreet">
+            <label>Service address <span class="req-star">*</span></label>
+            <div class="input-with-icon">
+              <span class="field-icon">📍</span>
+              <input type="text" id="customStreet" placeholder="48A Forrest Ave">
+            </div>
+            <span class="field-error-msg">Enter the service address.</span>
+          </div>
+
+          <div class="fields-row-2">
+            <div class="field-control" id="ctrl-customSuburb">
+              <label>Suburb <span class="req-star">*</span></label>
+              <input type="text" id="customSuburb" placeholder="Perth CBD">
+              <span class="field-error-msg">Enter suburb.</span>
+            </div>
+
+            <div class="field-control" id="ctrl-customPostcode">
+              <label>Postcode <span class="req-star">*</span></label>
+              <input type="text" id="customPostcode" placeholder="6000">
+              <span class="field-error-msg">Enter postcode.</span>
+            </div>
+          </div>
+
+          <div class="fields-row-2">
+            <div class="field-control" id="ctrl-customDate">
+              <label>Preferred service date <span class="req-star">*</span></label>
+              <div class="input-with-icon">
+                <span class="field-icon">📅</span>
+                <input type="date" id="customDate" required>
+              </div>
+              <span class="field-error-msg">Select a preferred service date.</span>
+            </div>
+
+            <div class="field-control" id="ctrl-customAltDate">
+              <label>Alternative date (optional)</label>
+              <div class="input-with-icon">
+                <span class="field-icon">📅</span>
+                <input type="date" id="customAltDate">
+              </div>
+            </div>
+          </div>
+
+          <div class="field-control full-span">
+            <label>Additional notes or special instructions</label>
+            <textarea id="customNotes" rows="4" placeholder="Any special instructions or requests..."></textarea>
+          </div>
+
+          <div class="panel-nav-footer">
+            <button type="button" id="btnCustomBackToDetails" class="btn-nav-back">← Back</button>
+            <button type="submit" class="btn-continue">Continue to Review <span>→</span></button>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <!-- STEP 3: Review -->
+    <section id="view-custom-review" class="booking-step-view">
+      <div class="page-heading">
+        <h1>Review Your Quote Request</h1>
+        <p>Please check the details before submitting.</p>
+      </div>
+
+      <div class="review-wrapper">
+        <div class="review-block">
+          <div class="review-block-header">
+            <h3>Service</h3>
+            <a href="../index.html" class="btn-edit-link">Edit</a>
+          </div>
+          <div class="review-kv-list">
+            <div class="review-kv-row"><span class="kv-label">Service</span><span class="kv-value">Custom / Specialised Service</span></div>
+            <div class="review-kv-row"><span class="kv-label">Status</span><span class="kv-value">Quote request</span></div>
+          </div>
+        </div>
+
+        <div class="review-block">
+          <div class="review-block-header">
+            <h3>Service Information</h3>
+            <button type="button" class="btn-edit-link" id="btnEditCustomDetails">Edit</button>
+          </div>
+          <div class="review-kv-list" id="customRevDetails"></div>
+        </div>
+
+        <div class="review-block">
+          <div class="review-block-header">
+            <h3>Price</h3>
+            <button type="button" class="btn-edit-link" id="btnEditCustomPrice">Edit</button>
+          </div>
+          <div class="review-kv-list">
+            <div class="review-kv-row"><span class="kv-label">Price status</span><span class="kv-value">To be confirmed after review</span></div>
+          </div>
+        </div>
+
+        <div class="review-block">
+          <div class="review-block-header">
+            <h3>Date & Contact</h3>
+            <button type="button" class="btn-edit-link" id="btnEditCustomContact">Edit</button>
+          </div>
+          <div class="review-kv-list" id="customRevContact"></div>
+        </div>
+
+        <div class="legal-notice-box">
+          <div class="legal-icon">✓</div>
+          <p>By submitting, you are sending a quote request. Golden Grace Services will review your requirements and contact you with the next steps.</p>
+        </div>
+
+        <div class="panel-nav-footer">
+          <button type="button" id="btnCustomBackToSchedule" class="btn-nav-back">← Back</button>
+          <button type="button" id="btnSubmitCustom" class="btn-submit-quote">Submit Quote Request <span>✓</span></button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Success Modal -->
+    <div id="customSuccessModal" class="modal-backdrop">
+      <div class="modal-card">
+        <div class="modal-icon-badge">✓</div>
+        <h2>Quote Request Received!</h2>
+        <p>Thank you for choosing Golden Grace Services. Our Perth team has received your custom service requirements and will review and send your confirmed quote within 24 hours.</p>
+        <button type="button" id="btnCustomModalClose" class="btn-continue">Done / Return Home</button>
+      </div>
+    </div>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+  <script src="../../js/email-config.js"></script>
+  <script src="../../js/booking-engine.js"></script>
+  <script src="custom-service.js"></script>
+</body>
+</html>
