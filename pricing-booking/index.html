@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Book a Clean | Golden Grace Services</title>
+  <link rel="icon" href="../Photo/Logo.jpeg">
+
+  <!-- Google Fonts matching index.html -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Main Homepage Stylesheet + Booking Engine Stylesheet -->
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/booking.css">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to main content</a>
+
+<!-- ============================== HEADER ============================== -->
+<header class="site-header" id="siteHeader">
+  <div class="container nav-inner">
+    <a href="../index.html" class="brand" aria-label="Golden Grace Services home">
+      <img class="brand-mark" src="../Photo/Logo.jpeg" alt="Golden Grace Services logo" width="520" height="520">
+      <span>Golden Grace<span class="brand-sub">Cleaning and Gardening Services</span></span>
+    </a>
+
+    <nav class="nav-links">
+      <a href="../index.html" class="nav-item">Home</a>
+      <a href="../cleaning.html" class="nav-item">Cleaning</a>
+      <a href="../gardening.html" class="nav-item">Gardening</a>
+
+      <div class="nav-actions">
+        <!-- Call Now Button -->
+        <a href="tel:+61485903551" class="btn-nav-call">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" width="17" height="17" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+          </svg>
+          <span>Call Now</span>
+        </a>
+
+        <!-- Book a Clean Pill Button -->
+        <a href="index.html" class="btn-nav-book">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" width="17" height="17" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+            <line x1="16" y1="2" x2="16" y2="6"></line>
+            <line x1="8" y1="2" x2="8" y2="6"></line>
+            <line x1="3" y1="10" x2="21" y2="10"></line>
+          </svg>
+          <span>Book a Clean</span>
+        </a>
+      </div>
+    </nav>
+    <button class="hamburger" id="hamburger" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="navLinks">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+  <main class="main-content">
+    <div class="support-bar">
+      Need help? 📞 <a href="tel:+61485903551">+61 485 903 551</a>
+    </div>
+
+    <div class="page-heading">
+      <h1>Select a Service</h1>
+      <p>Please choose the cleaning service you need.</p>
+    </div>
+
+    <div class="selection-panel">
+      <div class="services-grid">
+
+        <!-- 1. Commercial Cleaning -->
+        <div class="service-card" data-route="commercial/">
+          <div class="selected-check">✓</div>
+          <div class="icon-wrapper">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+              <rect x="4" y="2" width="16" height="20" rx="2" ry="2"></rect>
+              <line x1="8" y1="6" x2="10" y2="6"></line>
+              <line x1="14" y1="6" x2="16" y2="6"></line>
+              <line x1="8" y1="10" x2="10" y2="10"></line>
+              <line x1="14" y1="10" x2="16" y2="10"></line>
+              <line x1="8" y1="14" x2="10" y2="14"></line>
+              <line x1="14" y1="14" x2="16" y2="14"></line>
+              <line x1="11" y1="22" x2="11" y2="18"></line>
+              <line x1="13" y1="22" x2="13" y2="18"></line>
+            </svg>
+          </div>
+          <h3>Commercial Cleaning</h3>
+          <p>Professional cleaning for offices, clinics and commercial workplaces.</p>
+        </div>
+
+        <!-- 2. End of Lease / Vacate -->
+        <div class="service-card" data-route="end-of-lease/">
+          <div class="selected-check">✓</div>
+          <div class="icon-wrapper">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+              <path d="M3 10l9-7 9 7v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+              <polyline points="9 22 9 12 15 12 15 22"></polyline>
+            </svg>
+          </div>
+          <h3>End of Lease / Vacate</h3>
+          <p>Bond-ready cleaning prepared for strict property inspection standards.</p>
+        </div>
+
+        <!-- 3. Deep Cleaning -->
+        <div class="service-card" data-route="deep-cleaning/">
+          <div class="selected-check">✓</div>
+          <div class="icon-wrapper">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+              <path d="M12 2l2.4 5.6L20 10l-4.4 3.8L16.8 20 12 16.6 7.2 20l1.2-6.2L4 10l5.6-2.4z"></path>
+            </svg>
+          </div>
+          <h3>Deep Cleaning</h3>
+          <p>A detailed, top-to-bottom clean for homes that need a thorough reset.</p>
+        </div>
+
+        <!-- 4. Regular Cleaning -->
+        <div class="service-card" data-route="regular-cleaning/">
+          <div class="selected-check">✓</div>
+          <div class="icon-wrapper">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+              <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+              <line x1="16" y1="2" x2="16" y2="6"></line>
+              <line x1="8" y1="2" x2="8" y2="6"></line>
+              <line x1="3" y1="10" x2="21" y2="10"></line>
+              <polyline points="9 16 11 18 15 14"></polyline>
+            </svg>
+          </div>
+          <h3>Regular Cleaning</h3>
+          <p>Routine home cleaning for lived-in spaces on a weekly or fortnightly schedule.</p>
+        </div>
+
+        <!-- 5. Window Cleaning -->
+        <div class="service-card" data-route="window-cleaning/">
+          <div class="selected-check">✓</div>
+          <div class="icon-wrapper">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+              <rect x="3" y="3" width="18" height="18" rx="1"></rect>
+              <line x1="12" y1="3" x2="12" y2="21"></line>
+              <line x1="3" y1="12" x2="21" y2="12"></line>
+            </svg>
+          </div>
+          <h3>Window Cleaning</h3>
+          <p>Internal, external glass, frames, and track options for streak-free views.</p>
+        </div>
+
+        <!-- 6. Pressure Cleaning -->
+        <div class="service-card" data-route="pressure-cleaning/">
+          <div class="selected-check">✓</div>
+          <div class="icon-wrapper">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+              <path d="M14 4l-4 4 2 2 4-4"></path>
+              <path d="M6 16l4-4"></path>
+              <line x1="18" y1="2" x2="22" y2="6"></line>
+              <path d="M3 21c1-2 2-3 4-3s3 1 4 3"></path>
+            </svg>
+          </div>
+          <h3>Pressure Cleaning</h3>
+          <p>High-pressure washing for driveways, patios, decking and exterior walls.</p>
+        </div>
+
+        <!-- 7. Carpet Cleaning -->
+        <div class="service-card" data-route="carpet-cleaning/">
+          <div class="selected-check">✓</div>
+          <div class="icon-wrapper">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+              <circle cx="8" cy="18" r="3"></circle>
+              <path d="M11 18h9a1 1 0 0 0 1-1V8a1 1 0 0 0-1-1h-4"></path>
+              <path d="M8 15V6a2 2 0 0 1 2-2h2"></path>
+            </svg>
+          </div>
+          <h3>Carpet Cleaning</h3>
+          <p>Steam extraction, stain treatment, and deodorising for carpets and rugs.</p>
+        </div>
+
+        <!-- 8. Lawn & Garden Care -->
+        <div class="service-card" data-route="gardening/">
+          <div class="selected-check">✓</div>
+          <div class="icon-wrapper">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+              <path d="M11 20A7 7 0 0 1 4 13C4 6 11 3 11 3s7 3 7 10a7 7 0 0 1-7 7z"></path>
+              <path d="M11 3v17"></path>
+            </svg>
+          </div>
+          <h3>Lawn & Garden Care</h3>
+          <p>Mowing, edging, fertilising, weeding, and complete Perth garden care.</p>
+        </div>
+
+      </div>
+
+      <div class="panel-footer">
+        <button id="btnContinueHub" class="btn-continue" disabled>
+          Continue <span>→</span>
+        </button>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    let targetRoute = null;
+    const cards = document.querySelectorAll('.service-card');
+    const continueBtn = document.getElementById('btnContinueHub');
+
+    cards.forEach(card => {
+      card.addEventListener('click', () => {
+        cards.forEach(c => c.classList.remove('selected'));
+        card.classList.add('selected');
+        targetRoute = card.getAttribute('data-route');
+        continueBtn.removeAttribute('disabled');
+      });
+    });
+
+    continueBtn.addEventListener('click', () => {
+      if (targetRoute) {
+        window.location.href = targetRoute;
+      }
+    });
+  </script>
+</body>
+</html>

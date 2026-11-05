@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Commercial Cleaning Booking | Golden Grace Services</title>
+  <link rel="icon" href="../../Photo/Logo.jpeg">
+  <link rel="stylesheet" href="../../css/style.css">
+  <link rel="stylesheet" href="../../css/booking.css">
+</head>
+<body>
+
+  <header class="site-header" id="siteHeader">
+  <div class="container nav-inner">
+    <a href="../../index.html" class="brand" aria-label="Golden Grace Services home">
+      <img class="brand-mark" src="../../Photo/Logo.jpeg" alt="Golden Grace Services logo" width="520" height="520">
+      <span>Golden Grace<span class="brand-sub">Cleaning and Gardening Services</span></span>
+    </a>
+
+    <nav class="nav-links">
+      <a href="../../index.html" class="nav-item">Home</a>
+      <a href="../../cleaning.html" class="nav-item">Cleaning</a>
+      <a href="../../gardening.html" class="nav-item">Gardening</a>
+
+      <div class="nav-actions">
+        <!-- Call Now Button -->
+        <a href="tel:+61485903551" class="btn-nav-call">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" width="17" height="17" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+          </svg>
+          <span>Call Now</span>
+        </a>
+
+        <!-- Book a Clean Pill Button -->
+        <a href="../index.html" class="btn-nav-book">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" width="17" height="17" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+            <line x1="16" y1="2" x2="16" y2="6"></line>
+            <line x1="8" y1="2" x2="8" y2="6"></line>
+            <line x1="3" y1="10" x2="21" y2="10"></line>
+          </svg>
+          <span>Book a Clean</span>
+        </a>
+      </div>
+    </nav>
+    <button class="hamburger" id="hamburger" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="navLinks">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+  <main class="main-content">
+    <div class="support-bar">
+      Need help? 📞 <a href="tel:+61485903551">+61 485 903 551</a>
+    </div>
+
+    <!-- Stepper Navigation -->
+    <div class="stepper-bar">
+      <div class="step-indicator active" id="commStep1">
+        <span class="step-num-circle">✓</span>
+        <span class="step-name">Details</span>
+      </div>
+      <div class="step-connector-line" id="commLine1"></div>
+      <div class="step-indicator" id="commStep2">
+        <span class="step-num-circle">2</span>
+        <span class="step-name">Date & Contact</span>
+      </div>
+      <div class="step-connector-line" id="commLine2"></div>
+      <div class="step-indicator" id="commStep3">
+        <span class="step-num-circle">3</span>
+        <span class="step-name">Review</span>
+      </div>
+    </div>
+
+    <!-- STEP 1: Details -->
+    <section id="view-commercial-details" class="booking-step-view active">
+      <div class="page-heading">
+        <h1>Commercial Cleaning Details</h1>
+        <p>Tell us about your workplace and cleaning requirements.</p>
+      </div>
+
+      <div class="selection-panel">
+        <div class="info-callout">
+          <div class="callout-icon">🏢</div>
+          <div class="callout-content">
+            <strong>More details required</strong>
+            <p>Commercial cleaning requires some information about your workplace before we can confirm the final price. Continue to tell us about your business, cleaning requirements and preferred service date. We will review the information and contact you with a confirmed quote.</p>
+          </div>
+        </div>
+
+        <form id="commDetailsForm" novalidate>
+          <div class="fields-row-3">
+            <div class="field-control" id="ctrl-companyName">
+              <label>Business or company name <span class="req-star">*</span></label>
+              <div class="input-with-icon">
+                <span class="field-icon">🏢</span>
+                <input type="text" id="companyName" placeholder="Business name">
+              </div>
+              <span class="field-error-msg">Enter your business or company name.</span>
+            </div>
+
+            <div class="field-control" id="ctrl-workplaceType">
+              <label>Type of workplace <span class="req-star">*</span></label>
+              <select id="workplaceType">
+                <option value="" disabled selected>Select</option>
+                <option value="Office">Corporate / Private Office</option>
+                <option value="Retail Shop">Retail Shop / Showroom</option>
+                <option value="Medical Clinic">Medical / Dental Clinic</option>
+                <option value="Warehouse">Warehouse / Industrial Facility</option>
+                <option value="School / Childcare">School / Childcare Centre</option>
+                <option value="Gym Studio">Gym / Fitness Studio</option>
+                <option value="Restaurant / Cafe">Restaurant / Café / Bar</option>
+                <option value="Other">Other Workplace</option>
+              </select>
+              <span class="field-error-msg">Select the type of workplace.</span>
+            </div>
+
+            <div class="field-control">
+              <label>Number of rooms or work areas</label>
+              <input type="number" id="numRooms" value="1" min="1">
+            </div>
+          </div>
+
+          <div class="fields-row-3">
+            <div class="field-control">
+              <label>Number of kitchens or staff rooms</label>
+              <input type="number" id="numKitchens" value="0" min="0">
+            </div>
+
+            <div class="field-control">
+              <label>Number of toilets and bathrooms</label>
+              <input type="number" id="numBathrooms" value="1" min="0">
+            </div>
+
+            <div class="field-control">
+              <label>Approximate floor area</label>
+              <input type="text" id="floorArea" placeholder="Optional, e.g. 120 sqm">
+            </div>
+          </div>
+
+          <div class="fields-row-2">
+            <div class="field-control" id="ctrl-frequency">
+              <label>Cleaning frequency <span class="req-star">*</span></label>
+              <select id="cleaningFrequency">
+                <option value="" disabled selected>Select</option>
+                <option value="One-off clean">One-off / Deep Clean</option>
+                <option value="Daily">Daily (5 to 7 days a week)</option>
+                <option value="Several times per week">Several times per week</option>
+                <option value="Weekly">Weekly</option>
+                <option value="Fortnightly">Fortnightly</option>
+                <option value="Monthly">Monthly</option>
+              </select>
+              <span class="field-error-msg">Select the cleaning frequency.</span>
+            </div>
+
+            <div class="field-control" id="ctrl-period">
+              <label>Preferred cleaning period <span class="req-star">*</span></label>
+              <select id="cleaningPeriod">
+                <option value="" disabled selected>Select</option>
+                <option value="Before business hours">Before business hours (Early morning)</option>
+                <option value="During business hours">During business hours (Daytime)</option>
+                <option value="After business hours">After business hours (Evening)</option>
+                <option value="Weekends only">Weekends only</option>
+                <option value="Flexible">Flexible / Any time</option>
+              </select>
+              <span class="field-error-msg">Select the preferred cleaning period.</span>
+            </div>
+          </div>
+
+          <div class="options-checklist-section">
+            <label class="group-heading">Flooring types</label>
+            <div class="pill-checkboxes-grid">
+              <label class="pill-checkbox"><input type="checkbox" name="flooring" value="Carpet"><span>Carpet</span></label>
+              <label class="pill-checkbox"><input type="checkbox" name="flooring" value="Tiles"><span>Tiles</span></label>
+              <label class="pill-checkbox"><input type="checkbox" name="flooring" value="Vinyl"><span>Vinyl</span></label>
+              <label class="pill-checkbox"><input type="checkbox" name="flooring" value="Timber"><span>Timber</span></label>
+              <label class="pill-checkbox"><input type="checkbox" name="flooring" value="Concrete"><span>Concrete</span></label>
+              <label class="pill-checkbox"><input type="checkbox" name="flooring" value="Mixed flooring"><span>Mixed flooring</span></label>
+            </div>
+          </div>
+
+          <div class="options-checklist-section" id="section-servicesRequired">
+            <label class="group-heading">Areas/services required <span class="req-star">*</span></label>
+            <div class="pill-checkboxes-grid">
+              <label class="pill-checkbox"><input type="checkbox" name="commServices" value="Workstations and desks"><span>Workstations and desks</span></label>
+              <label class="pill-checkbox"><input type="checkbox" name="commServices" value="Reception and common areas"><span>Reception and common areas</span></label>
+              <label class="pill-checkbox"><input type="checkbox" name="commServices" value="Kitchens and staff rooms"><span>Kitchens and staff rooms</span></label>
+              <label class="pill-checkbox"><input type="checkbox" name="commServices" value="Bathrooms and amenities"><span>Bathrooms and amenities</span></label>
+              <label class="pill-checkbox"><input type="checkbox" name="commServices" value="Floors"><span>Floors</span></label>
+              <label class="pill-checkbox"><input type="checkbox" name="commServices" value="Bins and consumables"><span>Bins and consumables</span></label>
+              <label class="pill-checkbox"><input type="checkbox" name="commServices" value="Windows and glass"><span>Windows and glass</span></label>
+              <label class="pill-checkbox"><input type="checkbox" name="commServices" value="Other"><span>Other</span></label>
+            </div>
+            <span class="field-error-msg" id="commServicesError">Select at least one service required.</span>
+          </div>
+
+          <div class="field-control full-span">
+            <label>Tell us about your workplace and cleaning requirements</label>
+            <textarea id="workplaceNotes" rows="4" placeholder="Access, priorities, after-hours requirements, consumables, problem areas..."></textarea>
+          </div>
+
+          <div class="panel-nav-footer">
+            <a href="../index.html" class="btn-nav-back">← Back</a>
+            <button type="submit" class="btn-continue">Continue <span>→</span></button>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <!-- STEP 2: Date & Contact -->
+    <section id="view-commercial-schedule" class="booking-step-view">
+      <div class="page-heading">
+        <h1>Date & Contact</h1>
+        <p>Tell us where and when you would like the service.</p>
+      </div>
+
+      <div class="selection-panel">
+        <form id="commScheduleForm" novalidate>
+          <div class="field-control full-span" id="ctrl-fullName">
+            <label>Full name <span class="req-star">*</span></label>
+            <input type="text" id="fullName" placeholder="John Smith">
+            <span class="field-error-msg">Enter your full name.</span>
+          </div>
+
+          <div class="fields-row-2">
+            <div class="field-control" id="ctrl-contactEmail">
+              <label>Email address <span class="req-star">*</span></label>
+              <div class="input-with-icon">
+                <span class="field-icon">✉</span>
+                <input type="email" id="contactEmail" placeholder="john@example.com">
+              </div>
+              <span class="field-error-msg">Enter a valid email address.</span>
+            </div>
+
+            <div class="field-control" id="ctrl-contactPhone">
+              <label>Mobile number <span class="req-star">*</span></label>
+              <div class="input-with-icon">
+                <span class="field-icon">📞</span>
+                <input type="tel" id="contactPhone" placeholder="0480 000 000">
+              </div>
+              <span class="field-error-msg">Enter a valid mobile number.</span>
+            </div>
+          </div>
+
+          <div class="field-control full-span" id="ctrl-streetAddress">
+            <label>Service address <span class="req-star">*</span></label>
+            <div class="input-with-icon">
+              <span class="field-icon">📍</span>
+              <input type="text" id="streetAddress" placeholder="48A Forrest Ave">
+            </div>
+            <span class="field-error-msg">Enter the workplace address.</span>
+          </div>
+
+          <div class="fields-row-2">
+            <div class="field-control" id="ctrl-suburb">
+              <label>Suburb <span class="req-star">*</span></label>
+              <input type="text" id="suburb" placeholder="Perth CBD">
+              <span class="field-error-msg">Enter suburb.</span>
+            </div>
+
+            <div class="field-control" id="ctrl-postcode">
+              <label>Postcode <span class="req-star">*</span></label>
+              <input type="text" id="postcode" placeholder="6000">
+              <span class="field-error-msg">Enter postcode.</span>
+            </div>
+          </div>
+
+          <div class="fields-row-2">
+            <div class="field-control" id="ctrl-serviceDate">
+              <label>Preferred service date <span class="req-star">*</span></label>
+              <div class="input-with-icon">
+                <span class="field-icon">📅</span>
+                <input type="date" id="serviceDate" required>
+              </div>
+              <span class="field-error-msg">Select a preferred service date.</span>
+            </div>
+
+            <div class="field-control" id="ctrl-altDate">
+              <label>Alternative date (optional)</label>
+              <div class="input-with-icon">
+                <span class="field-icon">📅</span>
+                <input type="date" id="altDate">
+              </div>
+            </div>
+          </div>
+
+          <div class="field-control full-span">
+            <label>Additional notes or special instructions</label>
+            <textarea id="accessNotes" rows="4" placeholder="Any special instructions or requests..."></textarea>
+          </div>
+
+          <div class="panel-nav-footer">
+            <button type="button" id="btnBackToDetails" class="btn-nav-back">← Back</button>
+            <button type="submit" class="btn-continue">Continue to Review <span>→</span></button>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <!-- STEP 3: Review -->
+    <section id="view-commercial-review" class="booking-step-view">
+      <div class="page-heading">
+        <h1>Review Your Quote Request</h1>
+        <p>Please check the details before submitting.</p>
+      </div>
+
+      <div class="review-wrapper">
+        <div class="review-block">
+          <div class="review-block-header">
+            <h3>Service</h3>
+            <a href="../index.html" class="btn-edit-link">Edit</a>
+          </div>
+          <div class="review-kv-list">
+            <div class="review-kv-row"><span class="kv-label">Service</span><span class="kv-value">Commercial Cleaning</span></div>
+            <div class="review-kv-row"><span class="kv-label">Status</span><span class="kv-value">Quote request</span></div>
+          </div>
+        </div>
+
+        <div class="review-block">
+          <div class="review-block-header">
+            <h3>Service Information</h3>
+            <button type="button" class="btn-edit-link" id="btnEditCommDetails">Edit</button>
+          </div>
+          <div class="review-kv-list" id="commRevDetails"></div>
+        </div>
+
+        <div class="review-block">
+          <div class="review-block-header">
+            <h3>Price</h3>
+            <button type="button" class="btn-edit-link" id="btnEditCommPrice">Edit</button>
+          </div>
+          <div class="review-kv-list">
+            <div class="review-kv-row"><span class="kv-label">Price status</span><span class="kv-value">To be confirmed after review</span></div>
+          </div>
+        </div>
+
+        <div class="review-block">
+          <div class="review-block-header">
+            <h3>Date & Contact</h3>
+            <button type="button" class="btn-edit-link" id="btnEditCommContact">Edit</button>
+          </div>
+          <div class="review-kv-list" id="commRevContact"></div>
+        </div>
+
+        <div class="legal-notice-box">
+          <div class="legal-icon">✓</div>
+          <p>By submitting, you are sending a quote request. Golden Grace Services will review your workplace details and contact you with the next steps.</p>
+        </div>
+
+        <div class="panel-nav-footer">
+          <button type="button" id="btnBackToSchedule" class="btn-nav-back">← Back</button>
+          <button type="button" id="btnSubmitComm" class="btn-submit-quote">Submit Quote Request <span>✓</span></button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Success Modal -->
+    <div id="commSuccessModal" class="modal-backdrop">
+      <div class="modal-card">
+        <div class="modal-icon-badge">✓</div>
+        <h2>Quote Request Received!</h2>
+        <p>Thank you for choosing Golden Grace Services. Our Perth team has received your commercial workplace details and will review and send your confirmed quote within 24 hours.</p>
+        <button type="button" id="btnCommModalClose" class="btn-continue">Done / Return Home</button>
+      </div>
+    </div>
+  </main>
+
+  <script src="commercial.js"></script>
+</body>
+</html>

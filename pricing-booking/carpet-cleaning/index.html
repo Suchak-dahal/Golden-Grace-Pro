@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Carpet Cleaning Booking | Golden Grace Services</title>
+  <link rel="icon" href="../../Photo/Logo.jpeg">
+  <link rel="stylesheet" href="../../css/style.css">
+  <link rel="stylesheet" href="../../css/booking.css">
+</head>
+<body>
+
+  <!-- Site Header -->
+  <header class="site-header" id="siteHeader">
+  <div class="container nav-inner">
+    <a href="../../index.html" class="brand" aria-label="Golden Grace Services home">
+      <img class="brand-mark" src="../../Photo/Logo.jpeg" alt="Golden Grace Services logo" width="520" height="520">
+      <span>Golden Grace<span class="brand-sub">Cleaning and Gardening Services</span></span>
+    </a>
+
+    <nav class="nav-links">
+      <a href="../../index.html" class="nav-item">Home</a>
+      <a href="../../cleaning.html" class="nav-item">Cleaning</a>
+      <a href="../../gardening.html" class="nav-item">Gardening</a>
+
+      <div class="nav-actions">
+        <!-- Call Now Button -->
+        <a href="tel:+61485903551" class="btn-nav-call">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" width="17" height="17" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+          </svg>
+          <span>Call Now</span>
+        </a>
+
+        <!-- Book a Clean Pill Button -->
+        <a href="../index.html" class="btn-nav-book">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" width="17" height="17" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+            <line x1="16" y1="2" x2="16" y2="6"></line>
+            <line x1="8" y1="2" x2="8" y2="6"></line>
+            <line x1="3" y1="10" x2="21" y2="10"></line>
+          </svg>
+          <span>Book a Clean</span>
+        </a>
+      </div>
+    </nav>
+    <button class="hamburger" id="hamburger" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="navLinks">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+  <main class="main-content">
+    <div class="support-bar">
+      Need help? 📞 <a href="tel:+61485903551">+61 485 903 551</a>
+    </div>
+
+    <!-- Stepper Navigation (3 Steps: Carpeted Areas -> Date & Contact -> Review) -->
+    <div class="stepper-bar">
+      <div class="step-indicator active" id="ccStep1">
+        <span class="step-num-circle">✓</span>
+        <span class="step-name">Carpeted Areas</span>
+      </div>
+      <div class="step-connector-line" id="ccLine1"></div>
+      <div class="step-indicator" id="ccStep2">
+        <span class="step-num-circle">2</span>
+        <span class="step-name">Date & Contact</span>
+      </div>
+      <div class="step-connector-line" id="ccLine2"></div>
+      <div class="step-indicator" id="ccStep3">
+        <span class="step-num-circle">3</span>
+        <span class="step-name">Review</span>
+      </div>
+    </div>
+
+    <!-- ==============================================
+         STEP 1: Carpeted Areas (Image 2)
+         ============================================== -->
+    <section id="view-cc-areas" class="booking-step-view active">
+      <div class="page-heading">
+        <p style="color: var(--gg-text-muted); font-size: 1.05rem; margin-bottom: 24px;">Tell us how many carpeted rooms or areas need cleaning.</p>
+      </div>
+
+      <div class="vacate-layout-grid">
+        <div class="selection-panel">
+          
+          <!-- Property Type Selector (3 Cards) -->
+          <div class="form-control-block">
+            <label class="group-heading">Property type <span class="req-star">*</span></label>
+            <div class="fields-row-3" style="margin-bottom: 28px;">
+              
+              <div class="property-type-card selected" data-prop="House">
+                <div class="selected-check">✓</div>
+                <div class="prop-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" width="34" height="34">
+                    <path d="M3 10l9-7 9 7v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                    <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                  </svg>
+                </div>
+                <h3>House</h3>
+              </div>
+
+              <div class="property-type-card" data-prop="Apartment / Unit">
+                <div class="selected-check">✓</div>
+                <div class="prop-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" width="34" height="34">
+                    <rect x="4" y="2" width="16" height="20" rx="2" ry="2"></rect>
+                    <line x1="8" y1="6" x2="10" y2="6"></line>
+                    <line x1="14" y1="6" x2="16" y2="6"></line>
+                    <line x1="8" y1="10" x2="10" y2="10"></line>
+                    <line x1="14" y1="10" x2="16" y2="10"></line>
+                  </svg>
+                </div>
+                <h3>Apartment / Unit</h3>
+              </div>
+
+              <div class="property-type-card" data-prop="Office / Commercial Property">
+                <div class="selected-check">✓</div>
+                <div class="prop-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" width="34" height="34">
+                    <rect x="4" y="2" width="16" height="20" rx="2" ry="2"></rect>
+                    <line x1="8" y1="6" x2="10" y2="6"></line>
+                    <line x1="14" y1="6" x2="16" y2="6"></line>
+                    <line x1="8" y1="10" x2="10" y2="10"></line>
+                    <line x1="14" y1="10" x2="16" y2="10"></line>
+                    <line x1="8" y1="14" x2="10" y2="14"></line>
+                    <line x1="14" y1="14" x2="16" y2="14"></line>
+                    <line x1="11" y1="22" x2="11" y2="18"></line>
+                    <line x1="13" y1="22" x2="13" y2="18"></line>
+                  </svg>
+                </div>
+                <h3>Office / Commercial Property</h3>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- 5 Area Stepper Counters Row 1 (Bedrooms, Living, Dining) -->
+          <div class="fields-row-3" style="gap: 16px; margin-bottom: 20px;">
+            <div class="counter-item">
+              <label class="group-heading">Bedrooms</label>
+              <div class="counter-box">
+                <button type="button" class="btn-counter-ctrl" id="btnCcBedMinus">−</button>
+                <span class="counter-value" id="valCcBed">1</span>
+                <button type="button" class="btn-counter-ctrl" id="btnCcBedPlus">+</button>
+              </div>
+            </div>
+
+            <div class="counter-item">
+              <label class="group-heading">Lounge or living rooms</label>
+              <div class="counter-box">
+                <button type="button" class="btn-counter-ctrl" id="btnCcLivingMinus">−</button>
+                <span class="counter-value" id="valCcLiving">3</span>
+                <button type="button" class="btn-counter-ctrl" id="btnCcLivingPlus">+</button>
+              </div>
+            </div>
+
+            <div class="counter-item">
+              <label class="group-heading">Dining rooms</label>
+              <div class="counter-box">
+                <button type="button" class="btn-counter-ctrl" id="btnCcDiningMinus">−</button>
+                <span class="counter-value" id="valCcDining">2</span>
+                <button type="button" class="btn-counter-ctrl" id="btnCcDiningPlus">+</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- 5 Area Stepper Counters Row 2 (Hallways, Other) -->
+          <div class="fields-row-3" style="gap: 16px; margin-bottom: 24px;">
+            <div class="counter-item">
+              <label class="group-heading">Hallways</label>
+              <div class="counter-box">
+                <button type="button" class="btn-counter-ctrl" id="btnCcHallMinus">−</button>
+                <span class="counter-value" id="valCcHall">1</span>
+                <button type="button" class="btn-counter-ctrl" id="btnCcHallPlus">+</button>
+              </div>
+            </div>
+
+            <div class="counter-item">
+              <label class="group-heading">Other carpeted areas</label>
+              <div class="counter-box">
+                <button type="button" class="btn-counter-ctrl" id="btnCcOtherMinus">−</button>
+                <span class="counter-value" id="valCcOther">1</span>
+                <button type="button" class="btn-counter-ctrl" id="btnCcOtherPlus">+</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="panel-nav-footer">
+            <a href="../index.html" class="btn-nav-back">← Back</a>
+            <button type="button" id="btnCcToSchedule" class="btn-continue">Continue <span>→</span></button>
+          </div>
+        </div>
+
+        <aside class="sidebar-estimate-panel">
+          <div class="estimate-info-card">
+            <div class="estimate-info-icon">ⓘ</div>
+            <h3>Price estimate</h3>
+            <p>Estimated price shown in next step</p>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <!-- ==============================================
+         STEP 2: Date & Contact (Image 3)
+         ============================================== -->
+    <section id="view-cc-schedule" class="booking-step-view">
+      <div class="page-heading">
+        <h1>Date & Contact</h1>
+        <p>Tell us where and when you would like the service.</p>
+      </div>
+
+      <div class="vacate-layout-grid">
+        <div class="selection-panel">
+          <form id="ccScheduleForm" novalidate>
+            <div class="field-control full-span" id="ctrl-ccFullName">
+              <label>Full name <span class="req-star">*</span></label>
+              <input type="text" id="ccFullName" placeholder="John Smith">
+              <span class="field-error-msg">Enter your full name.</span>
+            </div>
+
+            <div class="fields-row-2">
+              <div class="field-control" id="ctrl-ccEmail">
+                <label>Email address <span class="req-star">*</span></label>
+                <div class="input-with-icon">
+                  <span class="field-icon">✉</span>
+                  <input type="email" id="ccEmail" placeholder="john@example.com">
+                </div>
+                <span class="field-error-msg">Enter a valid email address.</span>
+              </div>
+              <div class="field-control" id="ctrl-ccPhone">
+                <label>Mobile number <span class="req-star">*</span></label>
+                <div class="input-with-icon">
+                  <span class="field-icon">📞</span>
+                  <input type="tel" id="ccPhone" placeholder="0480 000 000">
+                </div>
+                <span class="field-error-msg">Enter a valid mobile number.</span>
+              </div>
+            </div>
+
+            <div class="field-control full-span" id="ctrl-ccStreet">
+              <label>Service address <span class="req-star">*</span></label>
+              <div class="input-with-icon">
+                <span class="field-icon">📍</span>
+                <input type="text" id="ccStreet" placeholder="48A Forrest Ave">
+              </div>
+              <span class="field-error-msg">Enter the property address.</span>
+            </div>
+
+            <div class="fields-row-2">
+              <div class="field-control" id="ctrl-ccSuburb">
+                <label>Suburb <span class="req-star">*</span></label>
+                <input type="text" id="ccSuburb" placeholder="South Bunbury">
+                <span class="field-error-msg">Enter suburb.</span>
+              </div>
+              <div class="field-control" id="ctrl-ccPostcode">
+                <label>Postcode <span class="req-star">*</span></label>
+                <input type="text" id="ccPostcode" placeholder="6230">
+                <span class="field-error-msg">Enter postcode.</span>
+              </div>
+            </div>
+
+            <div class="fields-row-2">
+              <div class="field-control" id="ctrl-ccDate">
+                <label>Preferred service date <span class="req-star">*</span></label>
+                <div class="input-with-icon">
+                  <span class="field-icon">📅</span>
+                  <input type="date" id="ccDate" required>
+                </div>
+                <span class="field-error-msg">Select a preferred service date.</span>
+              </div>
+              <div class="field-control">
+                <label>Alternative date (optional)</label>
+                <div class="input-with-icon">
+                  <span class="field-icon">📅</span>
+                  <input type="date" id="ccAltDate">
+                </div>
+              </div>
+            </div>
+
+            <div class="field-control full-span">
+              <label>Additional notes or special instructions</label>
+              <textarea id="ccNotes" rows="4" placeholder="Any special instructions or requests..."></textarea>
+            </div>
+
+            <div class="panel-nav-footer">
+              <button type="button" id="btnCcBackToAreas" class="btn-nav-back">← Back</button>
+              <button type="submit" class="btn-continue">Continue <span>→</span></button>
+            </div>
+          </form>
+        </div>
+
+        <!-- Sidebar on Date & Contact matching Image 3 -->
+        <aside class="sidebar-estimate-panel">
+          <div class="sidebar-quote-card">
+            <h3 class="quote-card-header">Your Quote</h3>
+            <div class="quote-summary-rows">
+              <div class="quote-row"><span class="q-label">Service</span><span class="q-value">Carpet Cleaning</span></div>
+              <div class="quote-row"><span class="q-label">Property</span><span class="q-value" id="ccDcSideProp">House</span></div>
+              <div class="quote-row"><span class="q-label">Rooms / areas</span><span class="q-value" id="ccDcSideRooms">8</span></div>
+              <div class="quote-row"><span class="q-label">Base price</span><span class="q-value" id="ccDcSideBase">$480.00</span></div>
+            </div>
+            <div class="quote-footer-total">
+              <div class="q-total-meta"><span>Estimated total</span><small>(excluding GST)</small></div>
+              <div class="q-total-amount" id="ccDcSideTotal">$480.00</div>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <!-- ==============================================
+         STEP 3: Review Your Booking (Image 4)
+         ============================================== -->
+    <section id="view-cc-review" class="booking-step-view">
+      <div class="page-heading">
+        <h1>Review Your Booking</h1>
+        <p>Please check your booking details before submitting.</p>
+      </div>
+
+      <div class="vacate-layout-grid">
+        <div class="review-wrapper">
+          <!-- Block 1: Service -->
+          <div class="review-block">
+            <div class="review-block-header">
+              <h3>Service</h3>
+              <a href="../index.html" class="btn-edit-link">Edit</a>
+            </div>
+            <div class="review-kv-list">
+              <div class="review-kv-row"><span class="kv-label">Service</span><span class="kv-value">Carpet Cleaning</span></div>
+              <div class="review-kv-row"><span class="kv-label">Status</span><span class="kv-value">Booking request with estimate</span></div>
+            </div>
+          </div>
+
+          <!-- Block 2: Service Information -->
+          <div class="review-block">
+            <div class="review-block-header">
+              <h3>Service Information</h3>
+              <button type="button" class="btn-edit-link" id="btnEditCcAreas">Edit</button>
+            </div>
+            <div class="review-kv-list" id="ccRevDetails"></div>
+          </div>
+
+          <!-- Block 3: Price -->
+          <div class="review-block">
+            <div class="review-block-header">
+              <h3>Price</h3>
+              <button type="button" class="btn-edit-link" id="btnEditCcPrice">Edit</button>
+            </div>
+            <div class="review-kv-list" id="ccRevPrice"></div>
+          </div>
+
+          <!-- Block 4: Date & Contact -->
+          <div class="review-block">
+            <div class="review-block-header">
+              <h3>Date & Contact</h3>
+              <button type="button" class="btn-edit-link" id="btnEditCcContact">Edit</button>
+            </div>
+            <div class="review-kv-list" id="ccRevContact"></div>
+          </div>
+
+          <div class="legal-notice-box">
+            <div class="legal-icon">✓</div>
+            <p>By submitting, you are sending a booking request. Golden Grace Services will contact you to confirm the appointment. You agree to our <a href="#">Terms & Conditions</a> and acknowledge our <a href="#">Privacy Policy</a>.</p>
+          </div>
+
+          <div class="panel-nav-footer">
+            <button type="button" id="btnBackToCcSchedule" class="btn-nav-back">← Back</button>
+            <button type="button" id="btnSubmitCc" class="btn-submit-quote">Confirm Booking <span>✓</span></button>
+          </div>
+        </div>
+
+        <!-- Sidebar on Review matching Image 4 -->
+        <aside class="sidebar-estimate-panel">
+          <div class="sidebar-quote-card">
+            <h3 class="quote-card-header">Your Quote</h3>
+            <div class="quote-summary-rows">
+              <div class="quote-row"><span class="q-label">Service</span><span class="q-value">Carpet Cleaning</span></div>
+              <div class="quote-row"><span class="q-label">Property</span><span class="q-value" id="ccRevSideProp">House</span></div>
+              <div class="quote-row"><span class="q-label">Rooms / areas</span><span class="q-value" id="ccRevSideRooms">8</span></div>
+              <div class="quote-row"><span class="q-label">Base price</span><span class="q-value" id="ccRevSideBase">$480.00</span></div>
+            </div>
+            <div class="quote-footer-total">
+              <div class="q-total-meta"><span>Estimated total</span><small>(excluding GST)</small></div>
+              <div class="q-total-amount" id="ccRevSideTotal">$480.00</div>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <!-- Success Modal -->
+    <div id="ccSuccessModal" class="modal-backdrop">
+      <div class="modal-card">
+        <div class="modal-icon-badge">✓</div>
+        <h2>Carpet Cleaning Booking Received!</h2>
+        <p>Thank you for choosing Golden Grace Services. Our Perth team has received your carpet cleaning booking request and will contact you within 24 hours to confirm.</p>
+        <button type="button" id="btnCcModalClose" class="btn-continue">Done / Return Home</button>
+      </div>
+    </div>
+  </main>
+
+  <script src="carpet-cleaning.js"></script>
+</body>
+</html>

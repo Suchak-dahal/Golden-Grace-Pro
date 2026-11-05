@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Regular Cleaning Booking | Golden Grace Services</title>
+  <link rel="stylesheet" href="../../css/style.css">
+  <link rel="stylesheet" href="../../css/booking.css">
+</head>
+<body>
+
+  <header class="site-header" id="siteHeader">
+  <div class="container nav-inner">
+    <a href="../../index.html" class="brand" aria-label="Golden Grace Services home">
+      <img class="brand-mark" src="../../Photo/Logo.jpeg" alt="Golden Grace Services logo" width="520" height="520">
+      <span>Golden Grace<span class="brand-sub">Cleaning and Gardening Services</span></span>
+    </a>
+
+    <nav class="nav-links">
+      <a href="../../index.html" class="nav-item">Home</a>
+      <a href="../../cleaning.html" class="nav-item">Cleaning</a>
+      <a href="../../gardening.html" class="nav-item">Gardening</a>
+
+      <div class="nav-actions">
+        <!-- Call Now Button -->
+        <a href="tel:+61485903551" class="btn-nav-call">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" width="17" height="17" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+          </svg>
+          <span>Call Now</span>
+        </a>
+
+        <!-- Book a Clean Pill Button -->
+        <a href="../index.html" class="btn-nav-book">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" width="17" height="17" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+            <line x1="16" y1="2" x2="16" y2="6"></line>
+            <line x1="8" y1="2" x2="8" y2="6"></line>
+            <line x1="3" y1="10" x2="21" y2="10"></line>
+          </svg>
+          <span>Book a Clean</span>
+        </a>
+      </div>
+    </nav>
+    <button class="hamburger" id="hamburger" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="navLinks">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+  <main class="main-content">
+    <div class="support-bar">
+      Need help? 📞 <a href="tel:+61485903551">+61 485 903 551</a>
+    </div>
+
+    <!-- Stepper Navigation (5 Steps: Property -> Frequency -> Inclusions & Extras -> Date & Contact -> Review) -->
+    <div class="stepper-bar">
+      <div class="step-indicator active" id="rcStep1">
+        <span class="step-num-circle">✓</span>
+        <span class="step-name">Property</span>
+      </div>
+      <div class="step-connector-line" id="rcLine1"></div>
+      <div class="step-indicator" id="rcStep2">
+        <span class="step-num-circle">2</span>
+        <span class="step-name">Frequency</span>
+      </div>
+      <div class="step-connector-line" id="rcLine2"></div>
+      <div class="step-indicator" id="rcStep3">
+        <span class="step-num-circle">3</span>
+        <span class="step-name">Inclusions & Extras</span>
+      </div>
+      <div class="step-connector-line" id="rcLine3"></div>
+      <div class="step-indicator" id="rcStep4">
+        <span class="step-num-circle">4</span>
+        <span class="step-name">Date & Contact</span>
+      </div>
+      <div class="step-connector-line" id="rcLine4"></div>
+      <div class="step-indicator" id="rcStep5">
+        <span class="step-num-circle">5</span>
+        <span class="step-name">Review</span>
+      </div>
+    </div>
+
+    <!-- ==============================================
+         STEP 1: Property Details (Image 2)
+         ============================================== -->
+    <section id="view-rc-property" class="booking-step-view active">
+      <div class="page-heading">
+        <h1>Property Details</h1>
+        <p>Tell us about the property.</p>
+      </div>
+
+      <div class="vacate-layout-grid">
+        <div class="selection-panel">
+          <div class="form-control-block">
+            <label class="group-heading">Property type <span class="req-star">*</span></label>
+            <div class="property-types-grid">
+              <div class="property-type-card selected" data-prop="House">
+                <div class="selected-check">✓</div>
+                <div class="prop-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" width="38" height="38">
+                    <path d="M3 10l9-7 9 7v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                    <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                  </svg>
+                </div>
+                <h3>House</h3>
+              </div>
+
+              <div class="property-type-card" data-prop="Apartment / Unit">
+                <div class="selected-check">✓</div>
+                <div class="prop-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" width="38" height="38">
+                    <rect x="4" y="2" width="16" height="20" rx="2" ry="2"></rect>
+                    <line x1="8" y1="6" x2="10" y2="6"></line>
+                    <line x1="14" y1="6" x2="16" y2="6"></line>
+                    <line x1="8" y1="10" x2="10" y2="10"></line>
+                    <line x1="14" y1="10" x2="16" y2="10"></line>
+                    <line x1="8" y1="14" x2="10" y2="14"></line>
+                    <line x1="14" y1="14" x2="16" y2="14"></line>
+                  </svg>
+                </div>
+                <h3>Apartment / Unit</h3>
+              </div>
+            </div>
+          </div>
+
+          <hr class="panel-divider">
+
+          <div class="counters-row">
+            <div class="counter-item">
+              <label class="group-heading">Number of bedrooms</label>
+              <div class="counter-box">
+                <button type="button" class="btn-counter-ctrl" id="btnRcBedMinus">−</button>
+                <span class="counter-value" id="valRcBedrooms">2</span>
+                <button type="button" class="btn-counter-ctrl" id="btnRcBedPlus">+</button>
+              </div>
+            </div>
+
+            <div class="counter-item">
+              <label class="group-heading">Number of bathrooms</label>
+              <div class="counter-box">
+                <button type="button" class="btn-counter-ctrl" id="btnRcBathMinus">−</button>
+                <span class="counter-value" id="valRcBathrooms">1</span>
+                <button type="button" class="btn-counter-ctrl" id="btnRcBathPlus">+</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="panel-nav-footer">
+            <a href="../index.html" class="btn-nav-back">← Back</a>
+            <button type="button" id="btnRcToFrequency" class="btn-continue">Continue <span>→</span></button>
+          </div>
+        </div>
+
+        <aside class="sidebar-estimate-panel">
+          <div class="estimate-info-card">
+            <div class="estimate-info-icon">ⓘ</div>
+            <h3>Price estimate</h3>
+            <p>Estimated price shown in next step</p>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <!-- ==============================================
+         STEP 2: Choose Cleaning Frequency (Image 3)
+         ============================================== -->
+    <section id="view-rc-frequency" class="booking-step-view">
+      <div class="page-heading">
+        <h1>Choose Cleaning Frequency</h1>
+        <p>Choose how often you would like the clean.</p>
+      </div>
+
+      <div class="vacate-layout-grid">
+        <div class="selection-panel">
+          <!-- 4 Frequency Cards matching Image 3 -->
+          <div class="property-types-grid">
+            
+            <div class="property-type-card" data-freq="Weekly" data-price="110">
+              <div class="selected-check">✓</div>
+              <h3>Weekly Cleaning</h3>
+              <p class="freq-price-desc" id="freqPriceWeekly">$110.00 per visit</p>
+            </div>
+
+            <div class="property-type-card selected" data-freq="Fortnightly" data-price="130">
+              <div class="selected-check">✓</div>
+              <h3>Fortnightly Cleaning</h3>
+              <p class="freq-price-desc" id="freqPriceFortnightly">$130.00 per visit</p>
+            </div>
+
+            <div class="property-type-card" data-freq="Monthly" data-price="170">
+              <div class="selected-check">✓</div>
+              <h3>Monthly Cleaning</h3>
+              <p class="freq-price-desc" id="freqPriceMonthly">$170.00 per visit</p>
+            </div>
+
+            <div class="property-type-card" data-freq="One-time" data-price="250">
+              <div class="selected-check">✓</div>
+              <h3>One-time Cleaning</h3>
+              <p class="freq-price-desc" id="freqPriceOnetime">$250.00 per visit</p>
+            </div>
+
+          </div>
+
+          <div class="panel-nav-footer">
+            <button type="button" id="btnRcBackToProperty" class="btn-nav-back">← Back</button>
+            <button type="button" id="btnRcToInclusions" class="btn-continue">Continue <span>→</span></button>
+          </div>
+        </div>
+
+        <aside class="sidebar-estimate-panel">
+          <div class="sidebar-quote-card">
+            <h3 class="quote-card-header">Your Quote</h3>
+            <div class="quote-summary-rows">
+              <div class="quote-row"><span class="q-label">Service</span><span class="q-value">Regular Cleaning</span></div>
+              <div class="quote-row"><span class="q-label">Property</span><span class="q-value" id="rcFreqSideProp">House</span></div>
+              <div class="quote-row"><span class="q-label">Bedrooms</span><span class="q-value" id="rcFreqSideBed">2</span></div>
+              <div class="quote-row"><span class="q-label">Bathrooms</span><span class="q-value" id="rcFreqSideBath">1</span></div>
+              <div class="quote-row"><span class="q-label">Frequency</span><span class="q-value" id="rcFreqSideFreq">Fortnightly</span></div>
+              <div class="quote-row"><span class="q-label">Base price</span><span class="q-value" id="rcFreqSideBase">$130.00</span></div>
+            </div>
+            <div class="quote-footer-total">
+              <div class="q-total-meta"><span>Estimated total</span><small>(excluding GST)</small></div>
+              <div class="q-total-amount" id="rcFreqSideTotal">$130.00</div>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <!-- ==============================================
+         STEP 3: Inclusions & Extras (Images 4, 5)
+         ============================================== -->
+    <section id="view-rc-inclusions" class="booking-step-view">
+      <div class="page-heading">
+        <h1>Inclusions & Extras</h1>
+        <p>Review what is included and choose any extras.</p>
+      </div>
+
+      <div class="vacate-layout-grid">
+        <div class="selection-panel">
+          <h2 class="subpanel-title">Your Cleaning Includes</h2>
+          
+          <!-- Exact Regular Cleaning Inclusions from Image 4 -->
+          <div class="inclusions-checklist-box">
+            <div class="check-item-row included">
+              <span class="check-icon">✓</span>
+              <span>Vacuuming and mopping all main hard floors.</span>
+            </div>
+            <div class="check-item-row included">
+              <span class="check-icon">✓</span>
+              <span>Bathrooms and toilets cleaned and sanitized .</span>
+            </div>
+            <div class="check-item-row included">
+              <span class="check-icon">✓</span>
+              <span>Wiping down kitchen exterior surfaces (benches, stovetop, sink).</span>
+            </div>
+            <div class="check-item-row included">
+              <span class="check-icon">✓</span>
+              <span>Basic dusting of easily accessible surfaces in the main living areas.</span>
+            </div>
+            <div class="check-item-row excluded">
+              <span class="cross-icon">✕</span>
+              <span>Heavy scrubbing, severe stains, dish washing and deep-cleaning work are not included unless selected separately</span>
+            </div>
+            <div class="gst-notice-row">
+              <span class="gst-note-icon">✓</span>
+              <span>Note : All prices are excluding GST.</span>
+            </div>
+          </div>
+
+          <!-- Blue Advisory Notice matching Image 4 -->
+          <div class="info-callout" style="padding: 14px 18px; margin-bottom: 28px;">
+            <div class="callout-icon" style="font-size: 1.2rem;">ⓘ</div>
+            <div class="callout-content">
+              <p style="font-size: 0.88rem; color: #0369a1;">Regular Cleaning is routine maintenance cleaning and does not include heavy scrubbing, severe stains or deep-cleaning work unless selected separately.</p>
+            </div>
+          </div>
+
+          <!-- Add Extras Section (Images 4, 5) -->
+          <div class="extras-section">
+            <h2 class="subpanel-title">Add Extras <span class="optional-tag">(Optional)</span></h2>
+
+            <div class="extras-cards-grid">
+              <div class="extra-selectable-card" data-extra="Oven Cleaning" data-price="75">
+                <div class="extra-check-badge">✓</div>
+                <h4>Oven Cleaning</h4>
+                <p>Oven, oven racks and stovetop</p>
+                <div class="extra-price-tag">+$75.00</div>
+              </div>
+
+              <div class="extra-selectable-card" data-extra="Fridge Cleaning" data-price="50">
+                <div class="extra-check-badge">✓</div>
+                <h4>Fridge Cleaning</h4>
+                <p>Interior fridge cleaning, shelves, drawers, door seals and exterior wipe-down. Fridge must be empty.</p>
+                <div class="extra-price-tag">+$50.00</div>
+              </div>
+
+              <div class="extra-selectable-card" data-extra="Internal Windows" data-price="125">
+                <div class="extra-check-badge">✓</div>
+                <h4>Internal Windows</h4>
+                <p>Interior glass cleaning for standard reachable windows.</p>
+                <div class="extra-price-tag">+$125.00</div>
+              </div>
+
+              <div class="extra-selectable-card" data-extra="Rangehood Cleaning" data-price="30">
+                <div class="extra-check-badge">✓</div>
+                <h4>Rangehood Cleaning</h4>
+                <p>Rangehood surface cleaning, filter cleaning and grease removal</p>
+                <div class="extra-price-tag">+$30.00</div>
+              </div>
+
+              <div class="extra-selectable-card" data-extra="Wall Spot Clean (Light)" data-price="125">
+                <div class="extra-check-badge">✓</div>
+                <h4>Wall Spot Clean (Light)</h4>
+                <p>Spot cleaning of visible marks, fingerprints and light scuffs</p>
+                <div class="extra-price-tag">+$125.00</div>
+              </div>
+
+              <div class="extra-selectable-card" data-extra="Full Wall Wash (Heavy)" data-price="300">
+                <div class="extra-check-badge">✓</div>
+                <h4>Full Wall Wash (Heavy)</h4>
+                <p>Detailed wall washing for larger areas or heavily marked walls. (No guarantee due to heaviness of walls)</p>
+                <div class="extra-price-tag">+$300.00</div>
+              </div>
+
+              <div class="extra-selectable-card" data-extra="Exterior Windows" data-price="125">
+                <div class="extra-check-badge">✓</div>
+                <h4>Exterior Windows</h4>
+                <p>Outside window cleaning for single-storey reachable windows.</p>
+                <div class="extra-price-tag">+$125.00</div>
+              </div>
+
+              <div class="extra-selectable-card" data-extra="Windows Tracks" data-price="100">
+                <div class="extra-check-badge">✓</div>
+                <h4>Windows Tracks</h4>
+                <p>Removal of dust, dirt and build-up from window tracks.</p>
+                <div class="extra-price-tag">+$100.00</div>
+              </div>
+
+              <div class="extra-selectable-card" data-extra="Garage Cleaning" data-price="50">
+                <div class="extra-check-badge">✓</div>
+                <h4>Garage Cleaning</h4>
+                <p>Garage sweep, cobweb removal and general dust removal</p>
+                <div class="extra-price-tag">+$50.00</div>
+              </div>
+
+              <div class="extra-selectable-card" data-extra="Carpet Steam Cleaning" data-price="60">
+                <div class="extra-check-badge">✓</div>
+                <h4>Carpet Steam Cleaning</h4>
+                <p>Professional carpet steam cleaning. Minimum call-out may apply.</p>
+                <div class="extra-price-tag">+$60.00</div>
+              </div>
+
+              <div class="extra-selectable-card" data-extra="Windows (More than 10)" data-price="325">
+                <div class="extra-check-badge">✓</div>
+                <h4>Windows Interior, Exterior and Tracks</h4>
+                <p>More than 10 windows</p>
+                <div class="extra-price-tag">+$325.00</div>
+              </div>
+
+              <div class="extra-selectable-card" data-extra="Windows (Less than 10)" data-price="175">
+                <div class="extra-check-badge">✓</div>
+                <h4>Windows Interior, Exterior and Tracks</h4>
+                <p>Less than 10 windows</p>
+                <div class="extra-price-tag">+$175.00</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="bottom-total-banner">
+            <div class="total-label-box">
+              <h3>Estimated total</h3>
+              <span>(excluding GST)</span>
+            </div>
+            <div class="total-price-display" id="rcBottomTotalPrice">$130.00</div>
+          </div>
+
+          <div class="panel-nav-footer">
+            <button type="button" id="btnRcBackToFreq" class="btn-nav-back">← Back</button>
+            <button type="button" id="btnRcToSchedule" class="btn-continue">Continue <span>→</span></button>
+          </div>
+        </div>
+
+        <aside class="sidebar-estimate-panel">
+          <div class="sidebar-quote-card">
+            <h3 class="quote-card-header">Your Quote</h3>
+            <div class="quote-summary-rows">
+              <div class="quote-row"><span class="q-label">Service</span><span class="q-value">Regular Cleaning</span></div>
+              <div class="quote-row"><span class="q-label">Property</span><span class="q-value" id="rcSideProp">House</span></div>
+              <div class="quote-row"><span class="q-label">Bedrooms</span><span class="q-value" id="rcSideBed">2</span></div>
+              <div class="quote-row"><span class="q-label">Bathrooms</span><span class="q-value" id="rcSideBath">1</span></div>
+              <div class="quote-row"><span class="q-label">Frequency</span><span class="q-value" id="rcSideFreq">Fortnightly</span></div>
+              <div class="quote-row"><span class="q-label">Base price</span><span class="q-value" id="rcSideBase">$130.00</span></div>
+              <div id="rcSideExtrasContainer" style="display: none;">
+                <div class="quote-row divider"><span class="q-label"><strong>Selected Extras:</strong></span></div>
+                <div id="rcSideExtrasList"></div>
+              </div>
+            </div>
+            <div class="quote-footer-total">
+              <div class="q-total-meta"><span>Estimated total</span><small>(excluding GST)</small></div>
+              <div class="q-total-amount" id="rcSideTotal">$130.00</div>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <!-- ==============================================
+         STEP 4: Date & Contact (Image 6)
+         ============================================== -->
+    <section id="view-rc-schedule" class="booking-step-view">
+      <div class="page-heading">
+        <h1>Date & Contact</h1>
+        <p>Tell us where and when you would like the service.</p>
+      </div>
+
+      <div class="vacate-layout-grid">
+        <div class="selection-panel">
+          <form id="rcScheduleForm" novalidate>
+            <div class="field-control full-span" id="ctrl-rcFullName">
+              <label>Full name <span class="req-star">*</span></label>
+              <input type="text" id="rcFullName" placeholder="John Smith">
+              <span class="field-error-msg">Enter your full name.</span>
+            </div>
+
+            <div class="fields-row-2">
+              <div class="field-control" id="ctrl-rcEmail">
+                <label>Email address <span class="req-star">*</span></label>
+                <div class="input-with-icon">
+                  <span class="field-icon">✉</span>
+                  <input type="email" id="rcEmail" placeholder="john@example.com">
+                </div>
+                <span class="field-error-msg">Enter a valid email address.</span>
+              </div>
+              <div class="field-control" id="ctrl-rcPhone">
+                <label>Mobile number <span class="req-star">*</span></label>
+                <div class="input-with-icon">
+                  <span class="field-icon">📞</span>
+                  <input type="tel" id="rcPhone" placeholder="0480 000 000">
+                </div>
+                <span class="field-error-msg">Enter a valid mobile number.</span>
+              </div>
+            </div>
+
+            <div class="field-control full-span" id="ctrl-rcStreet">
+              <label>Service address <span class="req-star">*</span></label>
+              <div class="input-with-icon">
+                <span class="field-icon">📍</span>
+                <input type="text" id="rcStreet" placeholder="48A Forrest Ave">
+              </div>
+              <span class="field-error-msg">Enter the property address.</span>
+            </div>
+
+            <div class="fields-row-2">
+              <div class="field-control" id="ctrl-rcSuburb">
+                <label>Suburb <span class="req-star">*</span></label>
+                <input type="text" id="rcSuburb" placeholder="South Bunbury">
+                <span class="field-error-msg">Enter suburb.</span>
+              </div>
+              <div class="field-control" id="ctrl-rcPostcode">
+                <label>Postcode <span class="req-star">*</span></label>
+                <input type="text" id="rcPostcode" placeholder="6230">
+                <span class="field-error-msg">Enter postcode.</span>
+              </div>
+            </div>
+
+            <div class="fields-row-2">
+              <div class="field-control" id="ctrl-rcDate">
+                <label>Preferred service date <span class="req-star">*</span></label>
+                <div class="input-with-icon">
+                  <span class="field-icon">📅</span>
+                  <input type="date" id="rcDate" required>
+                </div>
+                <span class="field-error-msg">Select a preferred service date.</span>
+              </div>
+              <div class="field-control">
+                <label>Alternative date (optional)</label>
+                <div class="input-with-icon">
+                  <span class="field-icon">📅</span>
+                  <input type="date" id="rcAltDate">
+                </div>
+              </div>
+            </div>
+
+            <div class="field-control full-span">
+              <label>Additional notes or special instructions</label>
+              <textarea id="rcNotes" rows="4" placeholder="Any special instructions or requests..."></textarea>
+            </div>
+
+            <div class="panel-nav-footer">
+              <button type="button" id="btnRcBackToInclusions" class="btn-nav-back">← Back</button>
+              <button type="submit" class="btn-continue">Continue <span>→</span></button>
+            </div>
+          </form>
+        </div>
+
+        <aside class="sidebar-estimate-panel">
+          <div class="sidebar-quote-card">
+            <h3 class="quote-card-header">Your Quote</h3>
+            <div class="quote-summary-rows">
+              <div class="quote-row"><span class="q-label">Service</span><span class="q-value">Regular Cleaning</span></div>
+              <div class="quote-row"><span class="q-label">Property</span><span class="q-value" id="rcDcSideProp">House</span></div>
+              <div class="quote-row"><span class="q-label">Bedrooms</span><span class="q-value" id="rcDcSideBed">2</span></div>
+              <div class="quote-row"><span class="q-label">Bathrooms</span><span class="q-value" id="rcDcSideBath">1</span></div>
+              <div class="quote-row"><span class="q-label">Frequency</span><span class="q-value" id="rcDcSideFreq">Fortnightly</span></div>
+              <div class="quote-row"><span class="q-label">Base price</span><span class="q-value" id="rcDcSideBase">$130.00</span></div>
+            </div>
+            <div class="quote-footer-total">
+              <div class="q-total-meta"><span>Estimated total</span><small>(excluding GST)</small></div>
+              <div class="q-total-amount" id="rcDcSideTotal">$130.00</div>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <!-- ==============================================
+         STEP 5: Review Your Booking (Image 7)
+         ============================================== -->
+    <section id="view-rc-review" class="booking-step-view">
+      <div class="page-heading">
+        <h1>Review Your Booking</h1>
+        <p>Please check your booking details before submitting.</p>
+      </div>
+
+      <div class="vacate-layout-grid">
+        <div class="review-wrapper">
+          <!-- Block 1: Service -->
+          <div class="review-block">
+            <div class="review-block-header">
+              <h3>Service</h3>
+              <a href="../index.html" class="btn-edit-link">Edit</a>
+            </div>
+            <div class="review-kv-list">
+              <div class="review-kv-row"><span class="kv-label">Service</span><span class="kv-value">Regular Cleaning</span></div>
+              <div class="review-kv-row"><span class="kv-label">Status</span><span class="kv-value">Booking request with estimate</span></div>
+            </div>
+          </div>
+
+          <!-- Block 2: Service Information -->
+          <div class="review-block">
+            <div class="review-block-header">
+              <h3>Service Information</h3>
+              <button type="button" class="btn-edit-link" id="btnEditRcProperty">Edit</button>
+            </div>
+            <div class="review-kv-list" id="rcRevDetails"></div>
+          </div>
+
+          <!-- Block 3: Price -->
+          <div class="review-block">
+            <div class="review-block-header">
+              <h3>Price</h3>
+              <button type="button" class="btn-edit-link" id="btnEditRcPrice">Edit</button>
+            </div>
+            <div class="review-kv-list" id="rcRevPrice"></div>
+          </div>
+
+          <!-- Block 4: Date & Contact -->
+          <div class="review-block">
+            <div class="review-block-header">
+              <h3>Date & Contact</h3>
+              <button type="button" class="btn-edit-link" id="btnEditRcContact">Edit</button>
+            </div>
+            <div class="review-kv-list" id="rcRevContact"></div>
+          </div>
+
+          <div class="legal-notice-box">
+            <div class="legal-icon">✓</div>
+            <p>By submitting, you are sending a booking request. Golden Grace Services will contact you to confirm the appointment. You agree to our <a href="#">Terms & Conditions</a> and acknowledge our <a href="#">Privacy Policy</a>.</p>
+          </div>
+
+          <div class="panel-nav-footer">
+            <button type="button" id="btnBackToRcSchedule" class="btn-nav-back">← Back</button>
+            <button type="button" id="btnSubmitRc" class="btn-submit-quote">Confirm Booking <span>✓</span></button>
+          </div>
+        </div>
+
+        <!-- Sidebar on Review -->
+        <aside class="sidebar-estimate-panel">
+          <div class="sidebar-quote-card">
+            <h3 class="quote-card-header">Your Quote</h3>
+            <div class="quote-summary-rows">
+              <div class="quote-row"><span class="q-label">Service</span><span class="q-value">Regular Cleaning</span></div>
+              <div class="quote-row"><span class="q-label">Property</span><span class="q-value" id="rcRevSideProp">House</span></div>
+              <div class="quote-row"><span class="q-label">Bedrooms</span><span class="q-value" id="rcRevSideBed">2</span></div>
+              <div class="quote-row"><span class="q-label">Bathrooms</span><span class="q-value" id="rcRevSideBath">1</span></div>
+              <div class="quote-row"><span class="q-label">Frequency</span><span class="q-value" id="rcRevSideFreq">Fortnightly</span></div>
+              <div class="quote-row"><span class="q-label">Base price</span><span class="q-value" id="rcRevSideBase">$130.00</span></div>
+            </div>
+            <div class="quote-footer-total">
+              <div class="q-total-meta"><span>Estimated total</span><small>(excluding GST)</small></div>
+              <div class="q-total-amount" id="rcRevSideTotal">$130.00</div>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <!-- Success Modal -->
+    <div id="rcSuccessModal" class="modal-backdrop">
+      <div class="modal-card">
+        <div class="modal-icon-badge">✓</div>
+        <h2>Regular Cleaning Request Received!</h2>
+        <p>Thank you for choosing Golden Grace Services. Our team has received your regular cleaning schedule request and will contact you within 24 hours to confirm.</p>
+        <button type="button" id="btnRcModalClose" class="btn-continue">Done / Return Home</button>
+      </div>
+    </div>
+  </main>
+
+  <script src="regular-cleaning.js"></script>
+</body>
+</html>

@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lawn & Garden Care Booking | Golden Grace Services</title>
+  <link rel="icon" href="../../Photo/Logo.jpeg">
+  <link rel="stylesheet" href="../../css/style.css">
+  <link rel="stylesheet" href="../../css/booking.css">  
+</head>
+<body>
+
+  <!-- Site Header -->
+ <header class="site-header" id="siteHeader">
+  <div class="container nav-inner">
+    <a href="../../index.html" class="brand" aria-label="Golden Grace Services home">
+      <img class="brand-mark" src="../../Photo/Logo.jpeg" alt="Golden Grace Services logo" width="520" height="520">
+      <span>Golden Grace<span class="brand-sub">Cleaning and Gardening Services</span></span>
+    </a>
+
+    <nav class="nav-links">
+      <a href="../../index.html" class="nav-item">Home</a>
+      <a href="../../cleaning.html" class="nav-item">Cleaning</a>
+      <a href="../../gardening.html" class="nav-item">Gardening</a>
+
+      <div class="nav-actions">
+        <!-- Call Now Button -->
+        <a href="tel:+61485903551" class="btn-nav-call">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" width="17" height="17" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+          </svg>
+          <span>Call Now</span>
+        </a>
+
+        <!-- Book a Clean Pill Button -->
+        <a href="../index.html" class="btn-nav-book">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" width="17" height="17" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+            <line x1="16" y1="2" x2="16" y2="6"></line>
+            <line x1="8" y1="2" x2="8" y2="6"></line>
+            <line x1="3" y1="10" x2="21" y2="10"></line>
+          </svg>
+          <span>Book a Clean</span>
+        </a>
+      </div>
+    </nav>
+    <button class="hamburger" id="hamburger" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="navLinks">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+  <main class="main-content">
+    <div class="support-bar">
+      Need help? 📞 <a href="tel:+61485903551">+61 485 903 551</a>
+    </div>
+
+    <!-- Stepper Navigation (5 Steps) -->
+    <div class="stepper-bar">
+      <div class="step-indicator active" id="lgStep1">
+        <span class="step-num-circle">✓</span>
+        <span class="step-name">Yard Details</span>
+      </div>
+      <div class="step-connector-line" id="lgLine1"></div>
+      <div class="step-indicator" id="lgStep2">
+        <span class="step-num-circle">2</span>
+        <span class="step-name">Frequency</span>
+      </div>
+      <div class="step-connector-line" id="lgLine2"></div>
+      <div class="step-indicator" id="lgStep3">
+        <span class="step-num-circle">3</span>
+        <span class="step-name">Inclusions & Extras</span>
+      </div>
+      <div class="step-connector-line" id="lgLine3"></div>
+      <div class="step-indicator" id="lgStep4">
+        <span class="step-num-circle">4</span>
+        <span class="step-name">Date & Contact</span>
+      </div>
+      <div class="step-connector-line" id="lgLine4"></div>
+      <div class="step-indicator" id="lgStep5">
+        <span class="step-num-circle">5</span>
+        <span class="step-name">Review</span>
+      </div>
+    </div>
+
+    <!-- ==============================================
+         STEP 1: Yard Details
+         ============================================== -->
+    <section id="view-lg-yard" class="booking-step-view active">
+      <div class="page-heading">
+        <h1>Yard Details</h1>
+        <p>Tell us about your lawn and garden size.</p>
+      </div>
+
+      <div class="vacate-layout-grid">
+        <div class="selection-panel">
+          
+          <!-- Yard Size Selector -->
+          <div class="form-control-block">
+            <label class="group-heading">Approximate lawn or yard size <span class="req-star">*</span></label>
+            <div class="property-types-grid" style="grid-template-columns: repeat(2, 1fr); margin-bottom: 24px;">
+              
+              <div class="property-type-card selected" data-size="Small (Up to 100 sqm)" data-base="75">
+                <div class="selected-check">✓</div>
+                <div class="prop-icon">🌱</div>
+                <h3>Small Yard</h3>
+                <p>Courtyards or townhouse patches (up to 100 sqm)</p>
+              </div>
+
+              <div class="property-type-card" data-size="Medium (100–300 sqm)" data-base="105">
+                <div class="selected-check">✓</div>
+                <div class="prop-icon">🏡</div>
+                <h3>Medium Yard</h3>
+                <p>Standard suburban block (100–300 sqm)</p>
+              </div>
+
+              <div class="property-type-card" data-size="Large (300–600 sqm)" data-base="145">
+                <div class="selected-check">✓</div>
+                <div class="prop-icon">🌳</div>
+                <h3>Large Yard</h3>
+                <p>Spacious front and rear lawns (300–600 sqm)</p>
+              </div>
+
+              <div class="property-type-card" data-size="Acreage / Extra Large (600+ sqm)" data-base="195">
+                <div class="selected-check">✓</div>
+                <div class="prop-icon">🚜</div>
+                <h3>Acreage / XL</h3>
+                <p>Very large property or corner block (600+ sqm)</p>
+              </div>
+
+            </div>
+          </div>
+
+          <hr class="panel-divider">
+
+          <!-- Grass Condition Selector -->
+          <div class="form-control-block">
+            <label class="group-heading">Current grass condition <span class="req-star">*</span></label>
+            <div class="property-types-grid" style="grid-template-columns: repeat(2, 1fr);">
+              
+              <div class="property-type-card selected" data-condition="Standard / Maintained" data-surcharge="0">
+                <div class="selected-check">✓</div>
+                <h3>Regularly Maintained</h3>
+                <p>Normal height, cut within the last 2–4 weeks</p>
+              </div>
+
+              <div class="property-type-card" data-condition="Overgrown / Long Grass" data-surcharge="45">
+                <div class="selected-check">✓</div>
+                <h3>Overgrown / Long Grass</h3>
+                <p>Knee-high or dense growth requiring a double cut (+ $45)</p>
+              </div>
+
+            </div>
+          </div>
+
+          <div class="panel-nav-footer">
+            <a href="../index.html" class="btn-nav-back">← Back</a>
+            <button type="button" id="btnLgToFrequency" class="btn-continue">Continue <span>→</span></button>
+          </div>
+        </div>
+
+        <aside class="sidebar-estimate-panel">
+          <div class="estimate-info-card">
+            <div class="estimate-info-icon">ⓘ</div>
+            <h3>Price estimate</h3>
+            <p>Estimated price shown in next step</p>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <!-- ==============================================
+         STEP 2: Choose Cleaning Frequency
+         ============================================== -->
+    <section id="view-lg-frequency" class="booking-step-view">
+      <div class="page-heading">
+        <h1>Choose Service Frequency</h1>
+        <p>Choose how often you would like your garden cared for.</p>
+      </div>
+
+      <div class="vacate-layout-grid">
+        <div class="selection-panel">
+          <div class="property-types-grid">
+            
+            <div class="property-type-card" data-freq="Weekly">
+              <div class="selected-check">✓</div>
+              <h3>Weekly Care</h3>
+              <p class="freq-price-desc" id="lgFreqPriceWeekly">$65.00 per visit</p>
+            </div>
+
+            <div class="property-type-card selected" data-freq="Fortnightly">
+              <div class="selected-check">✓</div>
+              <h3>Fortnightly Care</h3>
+              <p class="freq-price-desc" id="lgFreqPriceFortnightly">$75.00 per visit</p>
+            </div>
+
+            <div class="property-type-card" data-freq="Monthly">
+              <div class="selected-check">✓</div>
+              <h3>Monthly Care</h3>
+              <p class="freq-price-desc" id="lgFreqPriceMonthly">$95.00 per visit</p>
+            </div>
+
+            <div class="property-type-card" data-freq="One-time">
+              <div class="selected-check">✓</div>
+              <h3>One-time Service</h3>
+              <p class="freq-price-desc" id="lgFreqPriceOnetime">$135.00 per visit</p>
+            </div>
+
+          </div>
+
+          <div class="panel-nav-footer">
+            <button type="button" id="btnLgBackToYard" class="btn-nav-back">← Back</button>
+            <button type="button" id="btnLgToInclusions" class="btn-continue">Continue <span>→</span></button>
+          </div>
+        </div>
+
+        <aside class="sidebar-estimate-panel">
+          <div class="sidebar-quote-card">
+            <h3 class="quote-card-header">Your Quote</h3>
+            <div class="quote-summary-rows">
+              <div class="quote-row"><span class="q-label">Service</span><span class="q-value">Lawn & Garden Care</span></div>
+              <div class="quote-row"><span class="q-label">Yard size</span><span class="q-value" id="lgSideSize">Small</span></div>
+              <div class="quote-row"><span class="q-label">Condition</span><span class="q-value" id="lgSideCondition">Maintained</span></div>
+              <div class="quote-row"><span class="q-label">Frequency</span><span class="q-value" id="lgSideFreq">Fortnightly</span></div>
+              <div class="quote-row"><span class="q-label">Base price</span><span class="q-value" id="lgSideBase">$75.00</span></div>
+            </div>
+            <div class="quote-footer-total">
+              <div class="q-total-meta"><span>Estimated total</span><small>(excluding GST)</small></div>
+              <div class="q-total-amount" id="lgSideTotal">$75.00</div>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <!-- ==============================================
+         STEP 3: Inclusions & Extras
+         ============================================== -->
+    <section id="view-lg-inclusions" class="booking-step-view">
+      <div class="page-heading">
+        <h1>Inclusions & Extras</h1>
+        <p>Review standard lawn mowing inclusions and choose any garden extras.</p>
+      </div>
+
+      <div class="vacate-layout-grid">
+        <div class="selection-panel">
+          <h2 class="subpanel-title">Your Service Includes</h2>
+          
+          <div class="inclusions-checklist-box">
+            <div class="check-item-row included">
+              <span class="check-icon">✓</span>
+              <span>Full lawn mowing (front and/or back yard)</span>
+            </div>
+            <div class="check-item-row included">
+              <span class="check-icon">✓</span>
+              <span>Whipper-snipping and precision edge trimming along paths and garden beds</span>
+            </div>
+            <div class="check-item-row included">
+              <span class="check-icon">✓</span>
+              <span>Hard surface blower clean (driveways, walkways, entertainment patios)</span>
+            </div>
+            <div class="check-item-row included">
+              <span class="check-icon">✓</span>
+              <span>Grass clippings loaded into your green council bin</span>
+            </div>
+            <div class="check-item-row excluded">
+              <span class="cross-icon">✕</span>
+              <span>Weeding, hedging, tip disposal or fertilising are optional extras unless selected below</span>
+            </div>
+            <div class="gst-notice-row">
+              <span class="gst-note-icon">✓</span>
+              <span>Note : All prices are excluding GST.</span>
+            </div>
+          </div>
+
+          <!-- Add Extras Grid -->
+          <div class="extras-section">
+            <h2 class="subpanel-title">Add Extras <span class="optional-tag">(Optional)</span></h2>
+
+            <div class="extras-cards-grid">
+              
+              <div class="extra-selectable-card" data-extra="Weed Removal & Spraying" data-price="45">
+                <div class="extra-check-badge">✓</div>
+                <h4>Weed Removal & Spraying</h4>
+                <p>Targeted weed pulling from garden beds and herbicide treatment along paving.</p>
+                <div class="extra-price-tag">+$45.00</div>
+              </div>
+
+              <div class="extra-selectable-card" data-extra="Hedge Trimming & Shrub Shaping" data-price="65">
+                <div class="extra-check-badge">✓</div>
+                <h4>Hedge Trimming & Pruning</h4>
+                <p>Clean shaping of perimeter hedges, shrubs and ornamental bushes up to 2.5m.</p>
+                <div class="extra-price-tag">+$65.00</div>
+              </div>
+
+              <div class="extra-selectable-card" data-extra="Green Waste Removal & Tip Run" data-price="50">
+                <div class="extra-check-badge">✓</div>
+                <h4>Green Waste Tip Removal</h4>
+                <p>Full cartage and disposal if green bin is unavailable or overflow occurs.</p>
+                <div class="extra-price-tag">+$50.00</div>
+              </div>
+
+              <div class="extra-selectable-card" data-extra="Fertilising & Lawn Booster" data-price="35">
+                <div class="extra-check-badge">✓</div>
+                <h4>Lawn Fertilising & Booster</h4>
+                <p>Seasonal lawn food and soil wetting agent application for lush Perth greening.</p>
+                <div class="extra-price-tag">+$35.00</div>
+              </div>
+
+              <div class="extra-selectable-card" data-extra="Garden Bed Cleanout & Leaf Raking" data-price="55">
+                <div class="extra-check-badge">✓</div>
+                <h4>Garden Bed Raking & Cleanout</h4>
+                <p>Deep cleanout of fallen leaves, dead twigs and debris from garden mulch beds.</p>
+                <div class="extra-price-tag">+$55.00</div>
+              </div>
+
+              <div class="extra-selectable-card" data-extra="Mulch Supply & Application" data-price="85">
+                <div class="extra-check-badge">✓</div>
+                <h4>Mulch Application</h4>
+                <p>Installation of fresh woodchip mulch over prepared garden beds to retain moisture.</p>
+                <div class="extra-price-tag">+$85.00</div>
+              </div>
+
+            </div>
+          </div>
+
+          <div class="bottom-total-banner">
+            <div class="total-label-box">
+              <h3>Estimated total</h3>
+              <span>(excluding GST)</span>
+            </div>
+            <div class="total-price-display" id="lgBottomTotalPrice">$75.00</div>
+          </div>
+
+          <div class="panel-nav-footer">
+            <button type="button" id="btnLgBackToFreq" class="btn-nav-back">← Back</button>
+            <button type="button" id="btnLgToSchedule" class="btn-continue">Continue <span>→</span></button>
+          </div>
+        </div>
+
+        <aside class="sidebar-estimate-panel">
+          <div class="sidebar-quote-card">
+            <h3 class="quote-card-header">Your Quote</h3>
+            <div class="quote-summary-rows">
+              <div class="quote-row"><span class="q-label">Service</span><span class="q-value">Lawn & Garden Care</span></div>
+              <div class="quote-row"><span class="q-label">Yard size</span><span class="q-value" id="lgIncSideSize">Small</span></div>
+              <div class="quote-row"><span class="q-label">Condition</span><span class="q-value" id="lgIncSideCondition">Maintained</span></div>
+              <div class="quote-row"><span class="q-label">Frequency</span><span class="q-value" id="lgIncSideFreq">Fortnightly</span></div>
+              <div class="quote-row"><span class="q-label">Base price</span><span class="q-value" id="lgIncSideBase">$75.00</span></div>
+              <div id="lgSideExtrasContainer" style="display: none;">
+                <div class="quote-row divider"><span class="q-label"><strong>Selected Extras:</strong></span></div>
+                <div id="lgSideExtrasList"></div>
+              </div>
+            </div>
+            <div class="quote-footer-total">
+              <div class="q-total-meta"><span>Estimated total</span><small>(excluding GST)</small></div>
+              <div class="q-total-amount" id="lgIncSideTotal">$75.00</div>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <!-- ==============================================
+         STEP 4: Date & Contact
+         ============================================== -->
+    <section id="view-lg-schedule" class="booking-step-view">
+      <div class="page-heading">
+        <h1>Date & Contact</h1>
+        <p>Tell us where and when you would like the service.</p>
+      </div>
+
+      <div class="vacate-layout-grid">
+        <div class="selection-panel">
+          <form id="lgScheduleForm" novalidate>
+            <div class="field-control full-span" id="ctrl-lgFullName">
+              <label>Full name <span class="req-star">*</span></label>
+              <input type="text" id="lgFullName" placeholder="John Smith">
+              <span class="field-error-msg">Enter your full name.</span>
+            </div>
+
+            <div class="fields-row-2">
+              <div class="field-control" id="ctrl-lgEmail">
+                <label>Email address <span class="req-star">*</span></label>
+                <div class="input-with-icon">
+                  <span class="field-icon">✉</span>
+                  <input type="email" id="lgEmail" placeholder="john@example.com">
+                </div>
+                <span class="field-error-msg">Enter a valid email address.</span>
+              </div>
+              <div class="field-control" id="ctrl-lgPhone">
+                <label>Mobile number <span class="req-star">*</span></label>
+                <div class="input-with-icon">
+                  <span class="field-icon">📞</span>
+                  <input type="tel" id="lgPhone" placeholder="0480 000 000">
+                </div>
+                <span class="field-error-msg">Enter a valid mobile number.</span>
+              </div>
+            </div>
+
+            <div class="field-control full-span" id="ctrl-lgStreet">
+              <label>Service address <span class="req-star">*</span></label>
+              <div class="input-with-icon">
+                <span class="field-icon">📍</span>
+                <input type="text" id="lgStreet" placeholder="48A Forrest Ave">
+              </div>
+              <span class="field-error-msg">Enter the property address.</span>
+            </div>
+
+            <div class="fields-row-2">
+              <div class="field-control" id="ctrl-lgSuburb">
+                <label>Suburb <span class="req-star">*</span></label>
+                <input type="text" id="lgSuburb" placeholder="South Bunbury">
+                <span class="field-error-msg">Enter suburb.</span>
+              </div>
+              <div class="field-control" id="ctrl-lgPostcode">
+                <label>Postcode <span class="req-star">*</span></label>
+                <input type="text" id="lgPostcode" placeholder="6230">
+                <span class="field-error-msg">Enter postcode.</span>
+              </div>
+            </div>
+
+            <div class="fields-row-2">
+              <div class="field-control" id="ctrl-lgDate">
+                <label>Preferred service date <span class="req-star">*</span></label>
+                <div class="input-with-icon">
+                  <span class="field-icon">📅</span>
+                  <input type="date" id="lgDate" required>
+                </div>
+                <span class="field-error-msg">Select a preferred service date.</span>
+              </div>
+              <div class="field-control">
+                <label>Alternative date (optional)</label>
+                <div class="input-with-icon">
+                  <span class="field-icon">📅</span>
+                  <input type="date" id="lgAltDate">
+                </div>
+              </div>
+            </div>
+
+            <div class="field-control full-span">
+              <label>Side gate access or pets notes</label>
+              <textarea id="lgNotes" rows="4" placeholder="Side gate locked, dog in backyard, water tap location, etc..."></textarea>
+            </div>
+
+            <div class="panel-nav-footer">
+              <button type="button" id="btnLgBackToInclusions" class="btn-nav-back">← Back</button>
+              <button type="submit" class="btn-continue">Continue <span>→</span></button>
+            </div>
+          </form>
+        </div>
+
+        <aside class="sidebar-estimate-panel">
+          <div class="sidebar-quote-card">
+            <h3 class="quote-card-header">Your Quote</h3>
+            <div class="quote-summary-rows">
+              <div class="quote-row"><span class="q-label">Service</span><span class="q-value">Lawn & Garden Care</span></div>
+              <div class="quote-row"><span class="q-label">Yard size</span><span class="q-value" id="lgDcSideSize">Small</span></div>
+              <div class="quote-row"><span class="q-label">Condition</span><span class="q-value" id="lgDcSideCondition">Maintained</span></div>
+              <div class="quote-row"><span class="q-label">Frequency</span><span class="q-value" id="lgDcSideFreq">Fortnightly</span></div>
+              <div class="quote-row"><span class="q-label">Base price</span><span class="q-value" id="lgDcSideBase">$75.00</span></div>
+            </div>
+            <div class="quote-footer-total">
+              <div class="q-total-meta"><span>Estimated total</span><small>(excluding GST)</small></div>
+              <div class="q-total-amount" id="lgDcSideTotal">$75.00</div>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <!-- ==============================================
+         STEP 5: Review Your Booking
+         ============================================== -->
+    <section id="view-lg-review" class="booking-step-view">
+      <div class="page-heading">
+        <h1>Review Your Booking</h1>
+        <p>Please check your garden booking details before submitting.</p>
+      </div>
+
+      <div class="vacate-layout-grid">
+        <div class="review-wrapper">
+          
+          <div class="review-block">
+            <div class="review-block-header">
+              <h3>Service</h3>
+              <a href="../index.html" class="btn-edit-link">Edit</a>
+            </div>
+            <div class="review-kv-list">
+              <div class="review-kv-row"><span class="kv-label">Service</span><span class="kv-value">Lawn & Garden Care</span></div>
+              <div class="review-kv-row"><span class="kv-label">Status</span><span class="kv-value">Booking request with estimate</span></div>
+            </div>
+          </div>
+
+          <div class="review-block">
+            <div class="review-block-header">
+              <h3>Service Information</h3>
+              <button type="button" class="btn-edit-link" id="btnEditLgYard">Edit</button>
+            </div>
+            <div class="review-kv-list" id="lgRevDetails"></div>
+          </div>
+
+          <div class="review-block">
+            <div class="review-block-header">
+              <h3>Price</h3>
+              <button type="button" class="btn-edit-link" id="btnEditLgPrice">Edit</button>
+            </div>
+            <div class="review-kv-list" id="lgRevPrice"></div>
+          </div>
+
+          <div class="review-block">
+            <div class="review-block-header">
+              <h3>Date & Contact</h3>
+              <button type="button" class="btn-edit-link" id="btnEditLgContact">Edit</button>
+            </div>
+            <div class="review-kv-list" id="lgRevContact"></div>
+          </div>
+
+          <div class="legal-notice-box">
+            <div class="legal-icon">✓</div>
+            <p>By submitting, you are sending a booking request. Golden Grace Services will contact you to confirm the appointment. You agree to our <a href="#">Terms & Conditions</a> and acknowledge our <a href="#">Privacy Policy</a>.</p>
+          </div>
+
+          <div class="panel-nav-footer">
+            <button type="button" id="btnBackToLgSchedule" class="btn-nav-back">← Back</button>
+            <button type="button" id="btnSubmitLg" class="btn-submit-quote">Confirm Booking <span>✓</span></button>
+          </div>
+        </div>
+
+        <aside class="sidebar-estimate-panel">
+          <div class="sidebar-quote-card">
+            <h3 class="quote-card-header">Your Quote</h3>
+            <div class="quote-summary-rows">
+              <div class="quote-row"><span class="q-label">Service</span><span class="q-value">Lawn & Garden Care</span></div>
+              <div class="quote-row"><span class="q-label">Yard size</span><span class="q-value" id="lgRevSideSize">Small</span></div>
+              <div class="quote-row"><span class="q-label">Condition</span><span class="q-value" id="lgRevSideCondition">Maintained</span></div>
+              <div class="quote-row"><span class="q-label">Frequency</span><span class="q-value" id="lgRevSideFreq">Fortnightly</span></div>
+              <div class="quote-row"><span class="q-label">Base price</span><span class="q-value" id="lgRevSideBase">$75.00</span></div>
+            </div>
+            <div class="quote-footer-total">
+              <div class="q-total-meta"><span>Estimated total</span><small>(excluding GST)</small></div>
+              <div class="q-total-amount" id="lgRevSideTotal">$75.00</div>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <!-- Success Modal -->
+    <div id="lgSuccessModal" class="modal-backdrop">
+      <div class="modal-card">
+        <div class="modal-icon-badge">✓</div>
+        <h2>Lawn & Garden Care Request Received!</h2>
+        <p>Thank you for choosing Golden Grace Services. Our garden care team has received your details and will contact you within 24 hours to confirm your booking.</p>
+        <button type="button" id="btnLgModalClose" class="btn-continue">Done / Return Home</button>
+      </div>
+    </div>
+  </main>
+
+  <script src="gardening.js"></script>
+</body>
+</html>

@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Window Cleaning Booking | Golden Grace Services</title>
+  <link rel="stylesheet" href="../../css/style.css">
+  <link rel="stylesheet" href="../../css/booking.css">
+</head>
+<body>
+
+ <header class="site-header" id="siteHeader">
+  <div class="container nav-inner">
+    <a href="../../index.html" class="brand" aria-label="Golden Grace Services home">
+      <img class="brand-mark" src="../../Photo/Logo.jpeg" alt="Golden Grace Services logo" width="520" height="520">
+      <span>Golden Grace<span class="brand-sub">Cleaning and Gardening Services</span></span>
+    </a>
+
+    <nav class="nav-links">
+      <a href="../../index.html" class="nav-item">Home</a>
+      <a href="../../cleaning.html" class="nav-item">Cleaning</a>
+      <a href="../../gardening.html" class="nav-item">Gardening</a>
+
+      <div class="nav-actions">
+        <!-- Call Now Button -->
+        <a href="tel:+61485903551" class="btn-nav-call">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" width="17" height="17" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+          </svg>
+          <span>Call Now</span>
+        </a>
+
+        <!-- Book a Clean Pill Button -->
+        <a href="../index.html" class="btn-nav-book">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" width="17" height="17" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+            <line x1="16" y1="2" x2="16" y2="6"></line>
+            <line x1="8" y1="2" x2="8" y2="6"></line>
+            <line x1="3" y1="10" x2="21" y2="10"></line>
+          </svg>
+          <span>Book a Clean</span>
+        </a>
+      </div>
+    </nav>
+    <button class="hamburger" id="hamburger" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="navLinks">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+  <main class="main-content">
+    <div class="support-bar">
+      Need help? 📞 <a href="tel:+61485903551">+61 485 903 551</a>
+    </div>
+
+    <!-- Stepper Navigation (5 Steps) -->
+    <div class="stepper-bar">
+      <div class="step-indicator active" id="wcStep1">
+        <span class="step-num-circle">✓</span>
+        <span class="step-name">Windows</span>
+      </div>
+      <div class="step-connector-line" id="wcLine1"></div>
+      <div class="step-indicator" id="wcStep2">
+        <span class="step-num-circle">2</span>
+        <span class="step-name">Package</span>
+      </div>
+      <div class="step-connector-line" id="wcLine2"></div>
+      <div class="step-indicator" id="wcStep3">
+        <span class="step-num-circle">3</span>
+        <span class="step-name">Inclusions & Extras</span>
+      </div>
+      <div class="step-connector-line" id="wcLine3"></div>
+      <div class="step-indicator" id="wcStep4">
+        <span class="step-num-circle">4</span>
+        <span class="step-name">Date & Contact</span>
+      </div>
+      <div class="step-connector-line" id="wcLine4"></div>
+      <div class="step-indicator" id="wcStep5">
+        <span class="step-num-circle">5</span>
+        <span class="step-name">Review</span>
+      </div>
+    </div>
+
+    <!-- ==============================================
+         STEP 1: Window Count
+         ============================================== -->
+    <section id="view-wc-count" class="booking-step-view active">
+      <div class="page-heading">
+        <h1>Window Count</h1>
+        <p>Tell us how many windows need cleaning.</p>
+      </div>
+
+      <div class="vacate-layout-grid">
+        <div class="selection-panel">
+          <div class="form-control-block">
+            <h2 class="subpanel-title" style="margin-bottom: 8px;">Window count</h2>
+            <p style="color: var(--gg-text-muted); font-size: 0.92rem; margin-bottom: 24px;">Enter the total number of windows that need cleaning.</p>
+            
+            <label class="group-heading">How many windows require cleaning?</label>
+            <div class="counter-box" style="max-width: 320px;">
+              <button type="button" class="btn-counter-ctrl" id="btnWcCountMinus">−</button>
+              <span class="counter-value" id="valWcCount">11</span>
+              <button type="button" class="btn-counter-ctrl" id="btnWcCountPlus">+</button>
+            </div>
+          </div>
+
+          <div class="panel-nav-footer">
+            <a href="../index.html" class="btn-nav-back">← Back</a>
+            <button type="button" id="btnWcToPackage" class="btn-continue">Continue <span>→</span></button>
+          </div>
+        </div>
+
+        <aside class="sidebar-estimate-panel">
+          <div class="estimate-info-card">
+            <div class="estimate-info-icon">ⓘ</div>
+            <h3>Price estimate</h3>
+            <p>Estimated price shown in next step</p>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <!-- ==============================================
+         STEP 2: Select Window Package (Images 1, 2, 3)
+         ============================================== -->
+    <section id="view-wc-package" class="booking-step-view">
+      <div class="page-heading">
+        <h1>Select Window Package</h1>
+        <p>Choose the window cleaning option you need.</p>
+      </div>
+
+      <div class="vacate-layout-grid">
+        <!-- Left: 4 Rounded Package Cards -->
+        <div class="selection-panel">
+          <div class="window-packages-list">
+            
+            <!-- Package 1 -->
+            <div class="window-pkg-card selected" data-pkg="Internal Windows Only" data-price="100">
+              <div class="pkg-check-badge">✓</div>
+              <h3 class="pkg-title">Internal Windows Only</h3>
+              <p class="pkg-desc">Internal glass cleaned. No frames and sills wiped.</p>
+              <div class="pkg-price">$100.00</div>
+            </div>
+
+            <!-- Package 2 -->
+            <div class="window-pkg-card" data-pkg="Internal Windows + Tracks" data-price="200">
+              <div class="pkg-check-badge">✓</div>
+              <h3 class="pkg-title">Internal Windows + Tracks</h3>
+              <p class="pkg-desc">Internal glass, frames, sills and tracks cleaned.</p>
+              <div class="pkg-price">$200.00</div>
+            </div>
+
+            <!-- Package 3 -->
+            <div class="window-pkg-card" data-pkg="Internal + External Windows" data-price="225">
+              <div class="pkg-check-badge">✓</div>
+              <h3 class="pkg-title">Internal + External Windows</h3>
+              <p class="pkg-desc">Internal and external glass cleaned. No frames and sills wiped.</p>
+              <div class="pkg-price">$225.00</div>
+            </div>
+
+            <!-- Package 4 -->
+            <div class="window-pkg-card" data-pkg="Internal + External + Tracks" data-price="325">
+              <div class="pkg-check-badge">✓</div>
+              <h3 class="pkg-title">Internal + External + Tracks</h3>
+              <p class="pkg-desc">Internal and external glass, frames, sills and tracks cleaned.</p>
+              <div class="pkg-price">$325.00</div>
+            </div>
+
+          </div>
+
+          <div class="panel-nav-footer">
+            <button type="button" id="btnWcBackToCount" class="btn-nav-back">← Back</button>
+            <button type="button" id="btnWcToInclusions" class="btn-continue">Continue <span>→</span></button>
+          </div>
+        </div>
+
+        <!-- Right: Your Quote Sidebar Card -->
+        <aside class="sidebar-estimate-panel">
+          <div class="sidebar-quote-card">
+            <h3 class="quote-card-header">Your Quote</h3>
+            <div class="quote-summary-rows">
+              <div class="quote-row"><span class="q-label">Service</span><span class="q-value">Window Cleaning</span></div>
+              <div class="quote-row"><span class="q-label">Property</span><span class="q-value">House</span></div>
+              <div class="quote-row"><span class="q-label">Windows</span><span class="q-value" id="wcPkgSideCount">11</span></div>
+              <div class="quote-row"><span class="q-label">Package</span><span class="q-value" id="wcPkgSideName">Internal Windows Only</span></div>
+              <div class="quote-row"><span class="q-label">Base price</span><span class="q-value" id="wcPkgSideBase">$100.00</span></div>
+            </div>
+            <div class="quote-footer-total">
+              <div class="q-total-meta"><span>Estimated total</span><small>(excluding GST)</small></div>
+              <div class="q-total-amount" id="wcPkgSideTotal">$100.00</div>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <!-- ==============================================
+         STEP 3: Inclusions & Extras
+         ============================================== -->
+    <section id="view-wc-inclusions" class="booking-step-view">
+      <div class="page-heading">
+        <h1>Inclusions & Extras</h1>
+        <p>Review what is included and choose any extras.</p>
+      </div>
+
+      <div class="vacate-layout-grid">
+        <div class="selection-panel">
+          <h2 class="subpanel-title">Your Cleaning Includes</h2>
+          
+          <div class="inclusions-checklist-box">
+            <div class="check-item-row included">
+              <span class="check-icon">✓</span>
+              <span>Internal glass cleaned</span>
+            </div>
+            <div class="check-item-row excluded" id="wcIncRowExternal">
+              <span class="cross-icon" id="wcIncIconExternal">✕</span>
+              <span>External glass cleaned when selected in the package</span>
+            </div>
+            <div class="check-item-row excluded" id="wcIncRowTracks">
+              <span class="cross-icon" id="wcIncIconTracks">✕</span>
+              <span>Frames, sills and tracks cleaned when selected in the package</span>
+            </div>
+            <div class="check-item-row included">
+              <span class="check-icon">✓</span>
+              <span>Flyscreen</span>
+            </div>
+            <div class="gst-notice-row">
+              <span class="gst-note-icon">✓</span>
+              <span>Note : All prices are excluding GST.</span>
+            </div>
+          </div>
+
+          <div class="bottom-total-banner">
+            <div class="total-label-box">
+              <h3>Estimated total</h3>
+              <span>(excluding GST)</span>
+            </div>
+            <div class="total-price-display" id="wcBottomTotalPrice">$100.00</div>
+          </div>
+
+          <div class="panel-nav-footer">
+            <button type="button" id="btnWcBackToPkg" class="btn-nav-back">← Back</button>
+            <button type="button" id="btnWcToSchedule" class="btn-continue">Continue <span>→</span></button>
+          </div>
+        </div>
+
+        <aside class="sidebar-estimate-panel">
+          <div class="sidebar-quote-card">
+            <h3 class="quote-card-header">Your Quote</h3>
+            <div class="quote-summary-rows">
+              <div class="quote-row"><span class="q-label">Service</span><span class="q-value">Window Cleaning</span></div>
+              <div class="quote-row"><span class="q-label">Property</span><span class="q-value">House</span></div>
+              <div class="quote-row"><span class="q-label">Windows</span><span class="q-value" id="wcSideCount">11</span></div>
+              <div class="quote-row"><span class="q-label">Package</span><span class="q-value" id="wcSidePkgName">Internal Windows Only</span></div>
+              <div class="quote-row"><span class="q-label">Base price</span><span class="q-value" id="wcSideBase">$100.00</span></div>
+            </div>
+            <div class="quote-footer-total">
+              <div class="q-total-meta"><span>Estimated total</span><small>(excluding GST)</small></div>
+              <div class="q-total-amount" id="wcSideTotal">$100.00</div>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <!-- ==============================================
+         STEP 4: Date & Contact
+         ============================================== -->
+    <section id="view-wc-schedule" class="booking-step-view">
+      <div class="page-heading">
+        <h1>Date & Contact</h1>
+        <p>Tell us where and when you would like the service.</p>
+      </div>
+
+      <div class="vacate-layout-grid">
+        <div class="selection-panel">
+          <form id="wcScheduleForm" novalidate>
+            <div class="field-control full-span" id="ctrl-wcFullName">
+              <label>Full name <span class="req-star">*</span></label>
+              <input type="text" id="wcFullName" placeholder="John Smith">
+              <span class="field-error-msg">Enter your full name.</span>
+            </div>
+
+            <div class="fields-row-2">
+              <div class="field-control" id="ctrl-wcEmail">
+                <label>Email address <span class="req-star">*</span></label>
+                <div class="input-with-icon">
+                  <span class="field-icon">✉</span>
+                  <input type="email" id="wcEmail" placeholder="john@example.com">
+                </div>
+                <span class="field-error-msg">Enter a valid email address.</span>
+              </div>
+              <div class="field-control" id="ctrl-wcPhone">
+                <label>Mobile number <span class="req-star">*</span></label>
+                <div class="input-with-icon">
+                  <span class="field-icon">📞</span>
+                  <input type="tel" id="wcPhone" placeholder="0480 000 000">
+                </div>
+                <span class="field-error-msg">Enter a valid mobile number.</span>
+              </div>
+            </div>
+
+            <div class="field-control full-span" id="ctrl-wcStreet">
+              <label>Service address <span class="req-star">*</span></label>
+              <div class="input-with-icon">
+                <span class="field-icon">📍</span>
+                <input type="text" id="wcStreet" placeholder="48A Forrest Ave">
+              </div>
+              <span class="field-error-msg">Enter the property address.</span>
+            </div>
+
+            <div class="fields-row-2">
+              <div class="field-control" id="ctrl-wcSuburb">
+                <label>Suburb <span class="req-star">*</span></label>
+                <input type="text" id="wcSuburb" placeholder="South Bunbury">
+                <span class="field-error-msg">Enter suburb.</span>
+              </div>
+              <div class="field-control" id="ctrl-wcPostcode">
+                <label>Postcode <span class="req-star">*</span></label>
+                <input type="text" id="wcPostcode" placeholder="6230">
+                <span class="field-error-msg">Enter postcode.</span>
+              </div>
+            </div>
+
+            <div class="fields-row-2">
+              <div class="field-control" id="ctrl-wcDate">
+                <label>Preferred service date <span class="req-star">*</span></label>
+                <div class="input-with-icon">
+                  <span class="field-icon">📅</span>
+                  <input type="date" id="wcDate" required>
+                </div>
+                <span class="field-error-msg">Select a preferred service date.</span>
+              </div>
+              <div class="field-control">
+                <label>Alternative date (optional)</label>
+                <div class="input-with-icon">
+                  <span class="field-icon">📅</span>
+                  <input type="date" id="wcAltDate">
+                </div>
+              </div>
+            </div>
+
+            <div class="field-control full-span">
+              <label>Additional notes or special instructions</label>
+              <textarea id="wcNotes" rows="4" placeholder="Any special instructions or requests..."></textarea>
+            </div>
+
+            <div class="panel-nav-footer">
+              <button type="button" id="btnWcBackToInclusions" class="btn-nav-back">← Back</button>
+              <button type="submit" class="btn-continue">Continue <span>→</span></button>
+            </div>
+          </form>
+        </div>
+
+        <aside class="sidebar-estimate-panel">
+          <div class="sidebar-quote-card">
+            <h3 class="quote-card-header">Your Quote</h3>
+            <div class="quote-summary-rows">
+              <div class="quote-row"><span class="q-label">Service</span><span class="q-value">Window Cleaning</span></div>
+              <div class="quote-row"><span class="q-label">Property</span><span class="q-value">House</span></div>
+              <div class="quote-row"><span class="q-label">Windows</span><span class="q-value" id="wcDcSideCount">11</span></div>
+              <div class="quote-row"><span class="q-label">Package</span><span class="q-value" id="wcDcSidePkgName">Internal Windows Only</span></div>
+              <div class="quote-row"><span class="q-label">Base price</span><span class="q-value" id="wcDcSideBase">$100.00</span></div>
+            </div>
+            <div class="quote-footer-total">
+              <div class="q-total-meta"><span>Estimated total</span><small>(excluding GST)</small></div>
+              <div class="q-total-amount" id="wcDcSideTotal">$100.00</div>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <!-- ==============================================
+         STEP 5: Review Your Booking
+         ============================================== -->
+    <section id="view-wc-review" class="booking-step-view">
+      <div class="page-heading">
+        <h1>Review Your Booking</h1>
+        <p>Please check your booking details before submitting.</p>
+      </div>
+
+      <div class="vacate-layout-grid">
+        <div class="review-wrapper">
+          <!-- Block 1: Service -->
+          <div class="review-block">
+            <div class="review-block-header">
+              <h3>Service</h3>
+              <a href="../index.html" class="btn-edit-link">Edit</a>
+            </div>
+            <div class="review-kv-list">
+              <div class="review-kv-row"><span class="kv-label">Service</span><span class="kv-value">Window Cleaning</span></div>
+              <div class="review-kv-row"><span class="kv-label">Status</span><span class="kv-value">Booking request with estimate</span></div>
+            </div>
+          </div>
+
+          <!-- Block 2: Service Information -->
+          <div class="review-block">
+            <div class="review-block-header">
+              <h3>Service Information</h3>
+              <button type="button" class="btn-edit-link" id="btnEditWcCount">Edit</button>
+            </div>
+            <div class="review-kv-list" id="wcRevDetails"></div>
+          </div>
+
+          <!-- Block 3: Price -->
+          <div class="review-block">
+            <div class="review-block-header">
+              <h3>Price</h3>
+              <button type="button" class="btn-edit-link" id="btnEditWcPackage">Edit</button>
+            </div>
+            <div class="review-kv-list" id="wcRevPrice"></div>
+          </div>
+
+          <!-- Block 4: Date & Contact -->
+          <div class="review-block">
+            <div class="review-block-header">
+              <h3>Date & Contact</h3>
+              <button type="button" class="btn-edit-link" id="btnEditWcContact">Edit</button>
+            </div>
+            <div class="review-kv-list" id="wcRevContact"></div>
+          </div>
+
+          <div class="legal-notice-box">
+            <div class="legal-icon">✓</div>
+            <p>By submitting, you are sending a booking request. Golden Grace Services will contact you to confirm the appointment. You agree to our <a href="#">Terms & Conditions</a> and acknowledge our <a href="#">Privacy Policy</a>.</p>
+          </div>
+
+          <div class="panel-nav-footer">
+            <button type="button" id="btnBackToWcSchedule" class="btn-nav-back">← Back</button>
+            <button type="button" id="btnSubmitWc" class="btn-submit-quote">Confirm Booking <span>✓</span></button>
+          </div>
+        </div>
+
+        <aside class="sidebar-estimate-panel">
+          <div class="sidebar-quote-card">
+            <h3 class="quote-card-header">Your Quote</h3>
+            <div class="quote-summary-rows">
+              <div class="quote-row"><span class="q-label">Service</span><span class="q-value">Window Cleaning</span></div>
+              <div class="quote-row"><span class="q-label">Property</span><span class="q-value">House</span></div>
+              <div class="quote-row"><span class="q-label">Windows</span><span class="q-value" id="wcRevSideCount">11</span></div>
+              <div class="quote-row"><span class="q-label">Package</span><span class="q-value" id="wcRevSidePkgName">Internal Windows Only</span></div>
+              <div class="quote-row"><span class="q-label">Base price</span><span class="q-value" id="wcRevSideBase">$100.00</span></div>
+            </div>
+            <div class="quote-footer-total">
+              <div class="q-total-meta"><span>Estimated total</span><small>(excluding GST)</small></div>
+              <div class="q-total-amount" id="wcRevSideTotal">$100.00</div>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <!-- Success Modal -->
+    <div id="wcSuccessModal" class="modal-backdrop">
+      <div class="modal-card">
+        <div class="modal-icon-badge">✓</div>
+        <h2>Window Cleaning Booking Received!</h2>
+        <p>Thank you for choosing Golden Grace Services. Our Perth team has received your window cleaning booking request and will contact you within 24 hours to confirm.</p>
+        <button type="button" id="btnWcModalClose" class="btn-continue">Done / Return Home</button>
+      </div>
+    </div>
+  </main>
+
+  <script src="window-cleaning.js"></script>
+</body>
+</html>
