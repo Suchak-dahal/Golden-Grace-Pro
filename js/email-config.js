@@ -25,6 +25,17 @@
     SERVICE_ID: "service_vrifao4",            // Titan Mail SMTP Service ID in EmailJS
     ADMIN_TEMPLATE_ID: "template_60478oc",     // Admin notification template ID (sent to info@goldengrace.com.au)
     CUSTOMER_TEMPLATE_ID: "template_mcb1qkv",  // Customer confirmation template ID (sent to customer email)
+  
+
+// ---------------------------------------------------------------------
+    // Account 2: "Book a Clean" Multi-Step Funnel (New Account)
+    // ---------------------------------------------------------------------
+    BOOKING: {
+      PUBLIC_KEY: "1Zd99qfvNhXIwFEkC", // EmailJS Public Key
+      SERVICE_ID: "service_87fvn4p",          // Titan Mail SMTP Service ID in EmailJS
+      ADMIN_TEMPLATE_ID: "template_yx09f1r",    // Admin notification template ID (sent to
+      CUSTOMER_TEMPLATE_ID: "template_k4hd91m" // Customer confirmation template ID (sent to customer email)
+    },
 
     // ------------------------------------------------------------------------
     // Company & Support Information

@@ -32,11 +32,17 @@
    * Safe getter for configuration variables
    */
   function getConfig() {
-    return root.GG_EMAIL_CONFIG || {
+    const rootConfig = root.GG_EMAIL_CONFIG || {
       PUBLIC_KEY: "ZMv6drI8JMccVqExB",
       SERVICE_ID: "service_vrifao4",
       ADMIN_TEMPLATE_ID: "template_60478oc",
       CUSTOMER_TEMPLATE_ID: "template_mcb1qkv",
+      BOOKING: {
+        PUBLIC_KEY: "1Zd99qfvNhXIwFEkC",
+        SERVICE_ID: "service_87fvn4p",
+        ADMIN_TEMPLATE_ID: "template_yx09f1r",
+        CUSTOMER_TEMPLATE_ID: "template_k4hd91m"
+      },
       COMPANY_NAME: "Golden Grace Cleaning and Gardening Services",
       COMPANY_EMAIL: "info@goldengrace.com.au",
       COMPANY_PHONE: "+61 485 903 551",
@@ -44,6 +50,17 @@
       COMPANY_WEBSITE: "https://www.goldengrace.com.au",
       DEBUG: false
     };
+
+    if (rootConfig.BOOKING) {
+      if (!rootConfig.BOOKING.COMPANY_NAME) rootConfig.BOOKING.COMPANY_NAME = rootConfig.COMPANY_NAME || "Golden Grace Cleaning and Gardening Services";
+      if (!rootConfig.BOOKING.COMPANY_EMAIL) rootConfig.BOOKING.COMPANY_EMAIL = rootConfig.COMPANY_EMAIL || "info@goldengrace.com.au";
+      if (!rootConfig.BOOKING.COMPANY_PHONE) rootConfig.BOOKING.COMPANY_PHONE = rootConfig.COMPANY_PHONE || "+61 485 903 551";
+      if (!rootConfig.BOOKING.COMPANY_ADDRESS) rootConfig.BOOKING.COMPANY_ADDRESS = rootConfig.COMPANY_ADDRESS || "Perth, WA";
+      if (!rootConfig.BOOKING.COMPANY_WEBSITE) rootConfig.BOOKING.COMPANY_WEBSITE = rootConfig.COMPANY_WEBSITE || "https://www.goldengrace.com.au";
+      if (rootConfig.BOOKING.DEBUG === undefined) rootConfig.BOOKING.DEBUG = rootConfig.DEBUG || false;
+    }
+
+    return rootConfig.BOOKING || rootConfig;
   }
 
   /**
@@ -339,12 +356,43 @@
   }
 
   /**
+   * Builds an HTML table row string from scraped DOM review rows
+   * Filters out empty/null/"None"/"Not specified" values
+   *
+   * @param {Array} domRows - Array produced by scrapeDomReviewRows()
+   * @returns {string} Combined HTML table row string
+   */
+  function buildServiceDetailsHtml(domRows) {
+    if (!Array.isArray(domRows)) return "";
+
+    return domRows
+      .filter((item) => {
+        if (!item || !item.label) return false;
+        if (item.value === null || item.value === undefined) return false;
+        const val = String(item.value).trim();
+        if (
+          val === "" ||
+          val.toLowerCase() === "none" ||
+          val.toLowerCase() === "not specified"
+        ) {
+          return false;
+        }
+        return true;
+      })
+      .map((item) => `<tr><td style="padding: 9px 0; font-size: 13.5px; border-bottom: 1px solid #f1f5f9; color: #64748b; font-weight: 600; width: 44%;">${item.label}</td><td style="padding: 9px 0; font-size: 13.5px; border-bottom: 1px solid #f1f5f9; color: #0d1b2a; font-weight: 600; text-align: right;">${item.value}</td></tr>`)
+      .join("");
+  }
+
+  /**
    * Scrapes all customer contact, scheduling, and questionnaire data across active service
    */
   function extractBookingPayload(serviceNameInput, localData) {
     const serviceName = detectServiceName(serviceNameInput);
     const domRows = scrapeDomReviewRows();
     const config = getConfig();
+
+    const bookingRef = `GG-${new Date().getFullYear()}-${Math.floor(1000 + Math.random() * 9000)}`;
+    const serviceDetailsHtml = buildServiceDetailsHtml(domRows);
 
     // Customer Name
     const customerName = getFirstValue([
@@ -437,7 +485,7 @@
       customerAddress,
       preferredDate,
       alternativeDate: alternativeDate !== "None" ? alternativeDate : "None provided",
-      preferredTime: "Flexible / Any time",
+      //preferredTime: "Flexible / Any time",
       accessNotes,
       serviceDetails,
       estimatedPrice,
@@ -446,7 +494,11 @@
       companyName: config.COMPANY_NAME,
       companyEmail: config.COMPANY_EMAIL,
       companyPhone: config.COMPANY_PHONE,
-      companyWebsite: config.COMPANY_WEBSITE
+      companyWebsite: config.COMPANY_WEBSITE,
+      booking_ref: bookingRef,
+      service_details_html: serviceDetailsHtml,
+      price_display: estimatedPrice || "To be confirmed after review",
+     // selected_extras: (localData && localData.extras) ? localData.extras : "None selected"
     };
   }
 
@@ -477,18 +529,33 @@
 
     // Common template parameter set (supports both new standard tags and legacy aliases)
     const baseParams = {
-      // Primary standard schema tags
+      // Primary standard schema tags & Account 2 template variables
+      booking_ref: payload.booking_ref,
+      service: payload.serviceName,
       service_name: payload.serviceName,
+      service_details: payload.serviceDetails,
+      service_details_html: payload.service_details_html,
+     // selected_extras: payload.selected_extras || "None selected",
+      to_name: payload.customerName,
+      full_name: payload.customerName,
       customer_name: payload.customerName,
+      to_email: payload.customerEmail,
+      email: payload.customerEmail,
       customer_email: payload.customerEmail,
+      phone: payload.customerPhone,
       customer_phone: payload.customerPhone,
+      location: payload.customerAddress,
       customer_address: payload.customerAddress,
       customer_suburb: payload.customerSuburb || "Perth",
+      date: payload.preferredDate,
       preferred_date: payload.preferredDate,
+      alt_date: payload.alternativeDate,
       alternative_date: payload.alternativeDate,
-      preferred_time: payload.preferredTime,
+      //time: payload.preferredTime,
+      //preferred_time: payload.preferredTime,
+      notes: payload.accessNotes,
       access_notes: payload.accessNotes,
-      service_details: payload.serviceDetails,
+      price_display: payload.price_display,
       estimated_price: payload.estimatedPrice,
       submitted_at: payload.submittedAtFormatted,
       source_page: payload.sourcePage,
@@ -497,18 +564,7 @@
       company_name: config.COMPANY_NAME,
       company_email: config.COMPANY_EMAIL,
       company_phone: config.COMPANY_PHONE,
-      company_website: config.COMPANY_WEBSITE,
-
-      // Legacy parameter aliases (guarantees backward compatibility with existing templates)
-      full_name: payload.customerName,
-      email: payload.customerEmail,
-      phone: payload.customerPhone,
-      service: payload.serviceName,
-      location: payload.customerAddress,
-      date: payload.preferredDate,
-      alt_date: payload.alternativeDate,
-      time: payload.preferredTime,
-      notes: payload.accessNotes
+      company_website: config.COMPANY_WEBSITE
     };
 
     // 1. Admin Notification (sent to info@goldengrace.com.au, reply-to customer)
@@ -609,6 +665,7 @@
   root.GG_BOOKING_ENGINE = {
     submitBooking,
     extractBookingPayload,
+    buildServiceDetailsHtml,
     dispatchDualEmails,
     saveToLocalStorage,
     formatServiceDetails,

@@ -290,17 +290,52 @@
 
   const QUOTE_STORAGE_KEY = "ggs-quote-submissions";
   const SLOT_START_MINUTES = {
+    // 24-hour prefix values
     "07:00": 7 * 60,
     "09:00": 9 * 60,
     "11:00": 11 * 60,
     "13:00": 13 * 60,
     "15:00": 15 * 60,
+    // Full display string values (en-dash and hyphen)
+    "7:00 AM – 9:00 AM": 7 * 60,
+    "7:00 AM - 9:00 AM": 7 * 60,
+    "9:00 AM – 11:00 AM": 9 * 60,
+    "9:00 AM - 11:00 AM": 9 * 60,
+    "11:00 AM – 1:00 PM": 11 * 60,
+    "11:00 AM - 1:00 PM": 11 * 60,
+    "1:00 PM – 3:00 PM": 13 * 60,
+    "1:00 PM - 3:00 PM": 13 * 60,
+    "3:00 PM – 5:00 PM": 15 * 60,
+    "3:00 PM - 5:00 PM": 15 * 60,
   };
+
+  function getSlotStartMinutes(val) {
+    if (!val) return undefined;
+    const cleanVal = String(val).trim();
+    if (typeof SLOT_START_MINUTES[cleanVal] === "number") {
+      return SLOT_START_MINUTES[cleanVal];
+    }
+    const match = cleanVal.match(/^(\d{1,2}):(\d{2})\s*(AM|PM)?/i);
+    if (match) {
+      let hours = parseInt(match[1], 10);
+      const minutes = parseInt(match[2], 10);
+      const ampm = (match[3] || "").toUpperCase();
+      if (ampm === "PM" && hours < 12) hours += 12;
+      if (ampm === "AM" && hours === 12) hours = 0;
+      return hours * 60 + minutes;
+    }
+    return undefined;
+  }
 
   function buildQuotePayload(form) {
     const formData = new FormData(form);
     const serviceField = form.querySelector('select[name="service"]');
     const selectedService = serviceField && serviceField.selectedOptions.length ? serviceField.selectedOptions[0].textContent.trim() : "";
+
+    const timeField = form.querySelector('select[name="time"]');
+    const selectedTime = timeField && timeField.selectedIndex >= 0 && timeField.value
+      ? timeField.options[timeField.selectedIndex].text.trim()
+      : String(formData.get("time") || "").trim();
 
     return {
       fullName: String(formData.get("fullName") || "").trim(),
@@ -309,7 +344,7 @@
       serviceValue: String(formData.get("service") || "").trim(),
       serviceLabel: selectedService,
       preferredDate: String(formData.get("date") || "").trim(),
-      preferredTime: String(formData.get("time") || "").trim(),
+      preferredTime: selectedTime,
       location: String(formData.get("location") || "").trim(),
       additionalNotes: String(formData.get("notes") || "").trim(),
       submittedAt: new Date().toISOString(),
@@ -348,7 +383,7 @@
 
     Array.from(timeField.options).forEach((option) => {
       if (!option.value) return;
-      const slotMinutes = SLOT_START_MINUTES[option.value];
+      const slotMinutes = getSlotStartMinutes(option.value);
       const disableForToday = isToday && typeof slotMinutes === "number" && slotMinutes <= currentMinutes;
       option.disabled = disableForToday;
     });
@@ -515,7 +550,7 @@
         const todayString = new Date().toISOString().split("T")[0];
         if (dateField.value === todayString) {
           const currentMinutes = new Date().getHours() * 60 + new Date().getMinutes();
-          const slotMinutes = SLOT_START_MINUTES[timeField.value];
+          const slotMinutes = getSlotStartMinutes(timeField.value);
           if (typeof slotMinutes === "number" && slotMinutes <= currentMinutes) {
             validateField(timeField);
             timeField.focus();
