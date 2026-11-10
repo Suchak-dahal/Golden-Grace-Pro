@@ -117,19 +117,19 @@
 
             <div class="field-control">
               <label>Number of rooms or work areas</label>
-              <input type="number" id="numRooms" value="1" min="1">
+              <input type="number" id="numRooms" value="1" min="0" step="1" inputmode="numeric">
             </div>
           </div>
 
           <div class="fields-row-3">
             <div class="field-control">
               <label>Number of kitchens or staff rooms</label>
-              <input type="number" id="numKitchens" value="0" min="0">
+              <input type="number" id="numKitchens" value="0" min="0" step="1" inputmode="numeric">
             </div>
 
             <div class="field-control">
               <label>Number of toilets and bathrooms</label>
-              <input type="number" id="numBathrooms" value="1" min="0">
+              <input type="number" id="numBathrooms" value="1" min="0" step="1" inputmode="numeric">
             </div>
 
             <div class="field-control">
@@ -368,6 +368,7 @@
   <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
   <script src="../../js/email-config.js"></script>
   <script src="../../js/booking-engine.js"></script>
+  <script src="../../js/contact-validation.js"></script>
   <script src="commercial.js"></script>
 </body>
 </html>

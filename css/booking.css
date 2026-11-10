@@ -1506,3 +1506,76 @@ body {
   font-size: 0.92rem;
   line-height: 1.5;
 }
+
+
+/* ==========================================================================
+   Australian Contact & Step 1 Booking Validation Styles
+   ========================================================================== */
+
+/* Red border & soft tint for invalid input fields */
+.is-invalid,
+input.is-invalid,
+select.is-invalid,
+textarea.is-invalid {
+  border: 1.5px solid #dc3545 !important;
+  border-color: #dc3545 !important;
+  background-color: #fff5f5 !important;
+  box-shadow: 0 0 0 1px #dc3545 !important;
+  outline: none !important;
+}
+
+/* Red border for input wrapper containers with icons */
+.input-with-icon.is-invalid,
+.input-with-icon:has(.is-invalid) {
+  border: 1.5px solid #dc3545 !important;
+  border-color: #dc3545 !important;
+  background-color: #fff5f5 !important;
+  box-shadow: 0 0 0 1px #dc3545 !important;
+}
+
+/* Red border for counter boxes and card groups when invalid */
+.counter-box.is-invalid,
+.pill-checkboxes-grid.is-invalid,
+.property-types-grid.is-invalid,
+.window-packages-list.is-invalid {
+  border: 1.5px solid #dc3545 !important;
+  border-radius: 8px !important;
+  padding: 6px !important;
+  background-color: #fff5f5 !important;
+}
+
+/* Inline invalid error feedback */
+.invalid-feedback {
+  display: none;
+  width: 100%;
+  margin-top: 6px;
+  font-size: 0.8125rem;
+  line-height: 1.35;
+  color: #dc2626;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+/* Display when populated with error text */
+.invalid-feedback:not(:empty) {
+  display: block;
+}
+
+/* Suppress generic fallback message when specific feedback is active */
+.field-control:has(.is-invalid) > .field-error-msg,
+.field-control.has-invalid-field > .field-error-msg,
+.options-checklist-section:has(.is-invalid) > .field-error-msg {
+  display: none !important;
+}
+
+.text-danger {
+  color: #dc2626 !important;
+}
+
+.small {
+  font-size: 0.8125rem !important;
+}
+
+.mt-1 {
+  margin-top: 0.25rem !important;
+}

@@ -89,6 +89,88 @@ document.addEventListener("DOMContentLoaded", () => {
     return true;
   };
 
+  // --- Step 1 Numeric Quantity Validation & Non-Negative Sanitization ---
+  const QUANTITY_INPUT_SELECTORS = [
+    "#numRooms", "#work_areas",
+    "#numKitchens", "#kitchen_count",
+    "#numBathrooms", "#bathroom_count",
+    "#commDetailsForm input[type='number']"
+  ];
+
+  function getQuantityInputs() {
+    const selector = QUANTITY_INPUT_SELECTORS.join(", ");
+    return Array.from(document.querySelectorAll(selector));
+  }
+
+  function showQuantityError(input, message) {
+    if (!input) return;
+    input.classList.add("is-invalid");
+    const container = input.closest(".field-control") || input.parentElement;
+    let feedback = container ? container.querySelector(".invalid-feedback") : null;
+    if (!feedback) {
+      feedback = document.createElement("div");
+      feedback.className = "invalid-feedback text-danger small mt-1";
+      input.parentNode.insertBefore(feedback, input.nextSibling);
+    }
+    feedback.textContent = message;
+    feedback.style.display = "block";
+  }
+
+  function clearQuantityError(input) {
+    if (!input) return;
+    input.classList.remove("is-invalid");
+    const container = input.closest(".field-control") || input.parentElement;
+    if (container) {
+      const feedback = container.querySelector(".invalid-feedback");
+      if (feedback) {
+        feedback.textContent = "";
+        feedback.style.display = "none";
+      }
+    }
+  }
+
+  function setupQuantityInputs() {
+    const inputs = getQuantityInputs();
+    inputs.forEach((input) => {
+      // Enforce non-negative HTML attributes
+      input.setAttribute("min", "0");
+      input.setAttribute("step", "1");
+      input.setAttribute("inputmode", "numeric");
+
+      // Prevent negative / scientific signs on keydown
+      input.addEventListener("keydown", (e) => {
+        if (e.key === "-" || e.key === "+" || e.key === "e" || e.key === "E") {
+          e.preventDefault();
+        }
+      });
+
+      // Real-time paste sanitization & error clearing
+      input.addEventListener("input", () => {
+        let val = input.value;
+        if (val !== "") {
+          if (val.includes("-") || parseInt(val, 10) < 0) {
+            val = val.replace(/-/g, "").replace(/[+eE]/g, "");
+            input.value = val === "" ? "0" : String(Math.abs(parseInt(val, 10) || 0));
+          }
+        }
+        if (parseInt(input.value, 10) >= 0 || input.value === "") {
+          clearQuantityError(input);
+        }
+      });
+
+      input.addEventListener("change", () => {
+        if (input.value !== "" && parseInt(input.value, 10) < 0) {
+          input.value = "0";
+        }
+        if (parseInt(input.value, 10) >= 0 || input.value === "") {
+          clearQuantityError(input);
+        }
+      });
+    });
+  }
+
+  setupQuantityInputs();
+
   // Step 1 Submit
   document.getElementById("commDetailsForm").addEventListener("submit", (e) => {
     e.preventDefault();
@@ -98,6 +180,26 @@ document.addEventListener("DOMContentLoaded", () => {
     if (!validate("ctrl-workplaceType", "workplaceType")) valid = false;
     if (!validate("ctrl-frequency", "cleaningFrequency")) valid = false;
     if (!validate("ctrl-period", "cleaningPeriod")) valid = false;
+
+    // Validate quantity inputs are not negative
+    let firstInvalidQty = null;
+    getQuantityInputs().forEach((input) => {
+      const val = input.value.trim();
+      if (val !== "" && parseInt(val, 10) < 0) {
+        showQuantityError(input, "Value cannot be negative.");
+        valid = false;
+        if (!firstInvalidQty) firstInvalidQty = input;
+      } else {
+        clearQuantityError(input);
+      }
+    });
+
+    if (firstInvalidQty) {
+      firstInvalidQty.focus();
+      if (typeof firstInvalidQty.scrollIntoView === "function") {
+        firstInvalidQty.scrollIntoView({ behavior: "smooth", block: "center" });
+      }
+    }
 
     const checked = document.querySelectorAll('input[name="commServices"]:checked');
     const err = document.getElementById("commServicesError");
