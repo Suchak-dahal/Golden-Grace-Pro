@@ -21,20 +21,20 @@
     // ------------------------------------------------------------------------
     // EmailJS Credentials
     // ------------------------------------------------------------------------
-    PUBLIC_KEY: "ZMv6drI8JMccVqExB",          // EmailJS Public Key
-    SERVICE_ID: "service_vrifao4",            // Titan Mail SMTP Service ID in EmailJS
-    ADMIN_TEMPLATE_ID: "template_60478oc",     // Admin notification template ID (sent to info@goldengrace.com.au)
-    CUSTOMER_TEMPLATE_ID: "template_mcb1qkv",  // Customer confirmation template ID (sent to customer email)
+    PUBLIC_KEY: "RxX6Vlxa0krll3EeP",          // EmailJS Public Key
+    SERVICE_ID: "service_zxs99od",            // Titan Mail SMTP Service ID in EmailJS
+    ADMIN_TEMPLATE_ID: "template_8b3gfuu",     // Admin Quote Notification (sent to info@goldengrace.com.au)[cite: 9, 10
+    CUSTOMER_TEMPLATE_ID: "template_zmozs17",  // Client Confirmation (sent to customer email)[cite: 9, 10]
   
 
 // ---------------------------------------------------------------------
     // Account 2: "Book a Clean" Multi-Step Funnel (New Account)
     // ---------------------------------------------------------------------
     BOOKING: {
-      PUBLIC_KEY: "1Zd99qfvNhXIwFEkC", // EmailJS Public Key
-      SERVICE_ID: "service_87fvn4p",          // Titan Mail SMTP Service ID in EmailJS
-      ADMIN_TEMPLATE_ID: "template_yx09f1r",    // Admin notification template ID (sent to
-      CUSTOMER_TEMPLATE_ID: "template_k4hd91m" // Customer confirmation template ID (sent to customer email)
+      PUBLIC_KEY: "RxX6Vlxa0krll3EeP", // EmailJS Public Key
+      SERVICE_ID: "service_zxs99od",          // Titan Mail SMTP Service ID in EmailJS
+      ADMIN_TEMPLATE_ID: "template_ccn20ld",    // Admin Booking Notification (sent to info@goldengrace.com.au)[cite: 9, 10]
+      CUSTOMER_TEMPLATE_ID: "template_mbi9y18" // Client Booking Confirmation (sent to customer email)[cite: 9, 10]
     },
 
     // ------------------------------------------------------------------------
