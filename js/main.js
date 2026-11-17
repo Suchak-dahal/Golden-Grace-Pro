@@ -223,7 +223,12 @@
       if (titleEl && !titleEl.dataset.wrapped) {
         const words = titleEl.textContent.trim().split(/\s+/);
         titleEl.innerHTML = words
-          .map((w, i) => `<span class="word" style="animation-delay:${0.25 + i * 0.09}s">${w}</span>`)
+          .map((w, i) => {
+            if (w === "&" || w === "&amp;") {
+              return `<span class="word std-amp" style="animation-delay:${0.25 + i * 0.09}s"><span class="std-amp">&amp;</span></span>`;
+            }
+            return `<span class="word" style="animation-delay:${0.25 + i * 0.09}s">${w}</span>`;
+          })
           .join(" ");
         titleEl.dataset.wrapped = "true";
       }

@@ -723,8 +723,8 @@ p{margin:0 0 1em;color:var(--ink-soft);}
 }
 .footer-grid{
   display:grid;
-  grid-template-columns:1.4fr 1fr 1fr 1.2fr;
-  gap:2.5rem;
+  grid-template-columns: 1.35fr 1fr 1fr 1fr 1.15fr;
+  gap: 2rem;
   padding-bottom:3rem;
   border-bottom:1px solid rgba(249,246,240,.12);
 }
@@ -753,14 +753,18 @@ p{margin:0 0 1em;color:var(--ink-soft);}
 .footer-bottom a{color:rgba(183,213,196,.7);}
 .footer-bottom a:hover{color:var(--gold);}
 
-@media (max-width:900px){
-  .footer-grid{grid-template-columns:1fr 1fr;}
+@media (max-width:1080px){
+  .footer-grid{grid-template-columns: repeat(3, 1fr); gap: 2rem;}
+}
+@media (max-width:768px){
+  .footer-grid{grid-template-columns: 1fr 1fr; gap: 1.75rem;}
 }
 @media (max-width:560px){
-  .footer-grid{grid-template-columns:1fr;}
+  .footer-grid{grid-template-columns: 1fr; gap: 1.75rem;}
   .contact-grid{grid-template-columns:1fr;}
   .form-grid{grid-template-columns:1fr;}
 }
+
 
 /* ==========================================================================
    Reveal-on-scroll
@@ -1139,4 +1143,346 @@ p{margin:0 0 1em;color:var(--ink-soft);}
     padding: 8px 16px;
     font-size: 0.85rem;
   }
+}
+/* ==========================================================================
+   Shared CTA Banner, Legal/About Layout, Areas Grid & Accordions
+   ========================================================================== */
+.site-cta-banner {
+  background: linear-gradient(135deg, #132a1e 0%, #1b4332 100%);
+  color: #ffffff;
+  padding: 4.5rem 1.5rem;
+  border-top: 1px solid rgba(197, 155, 71, 0.25);
+}
+.cta-banner-inner {
+  max-width: 1140px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+.cta-banner-text h2 {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: clamp(1.6rem, 3vw, 2.25rem);
+  color: #ffffff;
+  margin: 0 0 0.5rem 0;
+  line-height: 1.25;
+}
+.cta-banner-text p {
+  color: #d8e0d8;
+  font-size: 1rem;
+  margin: 0;
+  line-height: 1.5;
+}
+.cta-banner-actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+.btn-cta-quote {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 24px;
+  border-radius: 9999px;
+  background-color: #C59B47;
+  color: #111111 !important;
+  font-weight: 700;
+  font-size: 0.95rem;
+  text-decoration: none;
+  box-shadow: 0 4px 14px rgba(197, 155, 71, 0.35);
+  transition: all 0.2s ease;
+  border: 1px solid #C59B47;
+}
+.btn-cta-quote:hover {
+  background-color: #b58c38;
+  border-color: #b58c38;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(197, 155, 71, 0.45);
+}
+.btn-cta-call {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 22px;
+  border-radius: 9999px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1.5px solid rgba(255, 255, 255, 0.45);
+  color: #ffffff !important;
+  font-weight: 600;
+  font-size: 0.95rem;
+  text-decoration: none;
+  backdrop-filter: blur(4px);
+  transition: all 0.2s ease;
+}
+.btn-cta-call:hover {
+  background: rgba(255, 255, 255, 0.18);
+  border-color: #C59B47;
+  color: #C59B47 !important;
+  transform: translateY(-2px);
+}
+@media (max-width: 768px) {
+  .site-cta-banner {
+    padding: 3rem 1.25rem;
+    text-align: center;
+  }
+  .cta-banner-inner {
+    flex-direction: column;
+    justify-content: center;
+  }
+  .cta-banner-actions {
+    justify-content: center;
+    width: 100%;
+  }
+  .cta-banner-actions a {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+/* Service Areas Grid */
+.areas-section {
+  background-color: var(--warm-white, #f7f5f0);
+  padding: 56px 20px 84px;
+}
+.section-header-center {
+  text-align: center;
+  max-width: 720px;
+  margin: 0 auto 48px;
+}
+.section-header-center h2 {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: clamp(1.85rem, 3.2vw, 2.5rem);
+  color: #132a1e;
+  margin: 0 0 12px 0;
+  line-height: 1.2;
+}
+.section-header-center .subtitle {
+  font-size: 1.05rem;
+  color: #4b564e;
+  line-height: 1.5;
+  margin: 0;
+}
+.areas-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  max-width: 1240px;
+  margin: 0 auto;
+}
+.area-region-card {
+  background: #ffffff;
+  border: 1px solid rgba(27, 67, 50, 0.10);
+  border-radius: 14px;
+  padding: 24px 20px;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.04);
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+.area-region-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px rgba(20, 42, 32, 0.08);
+}
+.region-card-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  margin-bottom: 20px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid rgba(27, 67, 50, 0.09);
+}
+.region-icon-wrap {
+  width: 42px;
+  height: 42px;
+  border-radius: 10px;
+  background: #f2eee5;
+  color: #C59B47;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.region-card-header h3 {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 1.15rem;
+  color: #132a1e;
+  margin: 0 0 4px 0;
+  line-height: 1.25;
+}
+.region-badge {
+  display: inline-block;
+  font-size: 0.76rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-weight: 700;
+  color: #8c6c28;
+}
+.suburb-chip-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.suburb-chip {
+  background: #fbfaf7;
+  border: 1px solid rgba(0, 0, 0, 0.07);
+  border-radius: 8px;
+  padding: 7px 12px;
+  font-size: 0.88rem;
+  font-weight: 500;
+  color: #132a1e;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02);
+  transition: all 0.15s ease;
+}
+.suburb-chip:hover {
+  background: #ffffff;
+  border-color: #C59B47;
+  color: #132a1e;
+  transform: translateY(-1px);
+}
+.service-helper-text {
+  text-align: center;
+  margin-top: 40px;
+  font-size: 1.02rem;
+  color: #374151;
+}
+.service-helper-text a {
+  color: #C59B47;
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.service-helper-text a:hover {
+  color: #a88133;
+}
+@media (max-width: 1024px) {
+  .areas-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 640px) {
+  .areas-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+/* ==========================================================================
+   Shree-style Stacked Rectangular Accordion FAQ Component
+   ========================================================================== */
+.faq-wrap-section {
+  background-color: var(--warm-white, #f7f5f0);
+  padding: 10px 0;
+}
+.faq-accordion-container {
+  max-width: 760px;
+  margin: 56px auto;
+  padding: 0 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.faq-item-card {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 6px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.03);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  overflow: hidden;
+}
+.faq-item-card:hover,
+.faq-item-card[open] {
+  border-color: #C59B47;
+  box-shadow: 0 3px 10px rgba(19, 42, 30, 0.06);
+}
+.faq-summary {
+  padding: 16px 22px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 15px;
+  color: #132a1e;
+  text-align: left;
+  list-style: none;
+  user-select: none;
+  transition: color 0.2s ease, padding 0.15s ease;
+}
+.faq-summary::-webkit-details-marker,
+.faq-summary::marker {
+  display: none;
+  content: "";
+}
+.faq-summary:hover {
+  color: #C59B47;
+}
+.faq-item-card[open] .faq-summary {
+  padding-bottom: 10px;
+}
+.faq-icon-arrow {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 14px;
+  height: 14px;
+  font-size: 13px;
+  color: #132a1e;
+  transform-origin: center;
+  transition: transform 0.2s ease, color 0.2s ease;
+  flex-shrink: 0;
+  line-height: 1;
+}
+.faq-item-card:hover .faq-icon-arrow,
+.faq-item-card[open] .faq-icon-arrow {
+  color: #C59B47;
+}
+.faq-item-card[open] .faq-icon-arrow {
+  transform: rotate(90deg);
+}
+.faq-body {
+  padding: 10px 22px 18px 42px;
+  font-size: 14.5px;
+  line-height: 1.65;
+  color: #475569;
+  border-top: 1px solid rgba(0, 0, 0, 0.04);
+}
+.faq-body p {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+.faq-body p + p {
+  margin-top: 10px;
+}
+.faq-body a {
+  color: #C59B47;
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.faq-body a:hover {
+  color: #a88133;
+}
+@media (max-width: 480px) {
+  .faq-summary {
+    padding: 14px 16px;
+    font-size: 14.5px;
+    gap: 10px;
+  }
+  .faq-item-card[open] .faq-summary {
+    padding-bottom: 8px;
+  }
+  .faq-body {
+    padding: 8px 16px 16px 36px;
+    font-size: 14px;
+  }
+}
+
+/* High-specificity upright ampersand rule */
+h1 .std-amp, h2 .std-amp, h3 .std-amp, h4 .std-amp, .std-amp, .word.std-amp {
+  font-family: 'Plus Jakarta Sans', 'Inter', system-ui, -apple-system, sans-serif !important;
+  font-style: normal !important;
+  font-weight: inherit !important;
 }

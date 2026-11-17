@@ -1508,7 +1508,7 @@
       },
       {
         name: "suburb",
-        selector: '#suburb, #rcSuburb, #dcSuburb, #eolSuburb, #ccSuburb, #wcSuburb, #pcSuburb, #lgSuburb, #customSuburb, input[placeholder*="Perth CBD"], input[placeholder*="South Bunbury"]',
+        selector: '#suburb, #rcSuburb, #dcSuburb, #eolSuburb, #ccSuburb, #wcSuburb, #pcSuburb, #lgSuburb, #customSuburb, input[placeholder*="Perth CBD"], input[placeholder*="Perth, WA"]',
         validate: (val) => {
           if (!val || val.trim().length < 2 || !SUBURB_REGEX.test(val.trim())) {
             return "Please enter a valid Perth suburb.";

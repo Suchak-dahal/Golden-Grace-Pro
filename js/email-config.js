@@ -23,18 +23,26 @@
     // ------------------------------------------------------------------------
     PUBLIC_KEY: "RxX6Vlxa0krll3EeP",          // EmailJS Public Key
     SERVICE_ID: "service_zxs99od",            // Titan Mail SMTP Service ID in EmailJS
-    ADMIN_TEMPLATE_ID: "template_8b3gfuu",     // Admin Quote Notification (sent to info@goldengrace.com.au)[cite: 9, 10
-    CUSTOMER_TEMPLATE_ID: "template_zmozs17",  // Client Confirmation (sent to customer email)[cite: 9, 10]
-  
+    ADMIN_TEMPLATE_ID: "template_8b3gfuu",     // Admin Quote Notification (sent to info@goldengrace.com.au)
+    CUSTOMER_TEMPLATE_ID: "template_zmozs17",  // Client Confirmation (sent to customer email)
 
-// ---------------------------------------------------------------------
+    // ------------------------------------------------------------------------
+    // Dedicated Landing Page Templates
+    // ------------------------------------------------------------------------
+    landingAdminTemplateId: 'template_yu4b7r8',
+    landingClientTemplateId: 'template_rmyoucy',
+    LANDING_ADMIN_TEMPLATE_ID: 'template_yu4b7r8',
+    LANDING_CLIENT_TEMPLATE_ID: 'template_rmyoucy',
+    LANDING_CUSTOMER_TEMPLATE_ID: 'template_rmyoucy',
+
+    // ------------------------------------------------------------------------
     // Account 2: "Book a Clean" Multi-Step Funnel (New Account)
-    // ---------------------------------------------------------------------
+    // ------------------------------------------------------------------------
     BOOKING: {
       PUBLIC_KEY: "RxX6Vlxa0krll3EeP", // EmailJS Public Key
       SERVICE_ID: "service_zxs99od",          // Titan Mail SMTP Service ID in EmailJS
-      ADMIN_TEMPLATE_ID: "template_ccn20ld",    // Admin Booking Notification (sent to info@goldengrace.com.au)[cite: 9, 10]
-      CUSTOMER_TEMPLATE_ID: "template_mbi9y18" // Client Booking Confirmation (sent to customer email)[cite: 9, 10]
+      ADMIN_TEMPLATE_ID: "template_ccn20ld",    // Admin Booking Notification (sent to info@goldengrace.com.au)
+      CUSTOMER_TEMPLATE_ID: "template_mbi9y18" // Client Booking Confirmation (sent to customer email)
     },
 
     // ------------------------------------------------------------------------

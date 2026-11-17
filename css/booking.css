@@ -1579,3 +1579,10 @@ textarea.is-invalid {
 .mt-1 {
   margin-top: 0.25rem !important;
 }
+
+/* High-specificity upright ampersand rule */
+h1 .std-amp, h2 .std-amp, h3 .std-amp, h4 .std-amp, .std-amp, .word.std-amp {
+  font-family: 'Plus Jakarta Sans', 'Inter', system-ui, -apple-system, sans-serif !important;
+  font-style: normal !important;
+  font-weight: inherit !important;
+}

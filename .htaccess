@@ -1,0 +1,9 @@
+# Apache mod_rewrite for Golden Grace Solutions
+RewriteEngine On
+RewriteBase /
+
+# Resolve extensionless URLs to .html files cleanly (e.g. /privacy-policy -> /privacy-policy.html)
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME}.html -f
+RewriteRule ^(.*)$ $1.html [L]
